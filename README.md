@@ -2,10 +2,10 @@
   Just a small project* 
   Character Creator in Terminal based on Cyberpunk tabletop and videogame Lore.
   
-Run with file Main_Cyberpunk.py
+Run with file Main_Cyberpunk.py*
 
 Required Modules:
-		pygame
-		pandas
-		InquirerPy
-		colorama
+		pygame /
+		pandas /
+		InquirerPy /
+		colorama /
