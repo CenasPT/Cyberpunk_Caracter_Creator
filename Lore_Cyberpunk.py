@@ -1,36 +1,36 @@
-from colorama import Fore, Style # Modifica cor e estilo do texto.
-from Animations_Cyberpunk import centrar_texto # centra o texto
+from colorama import Fore, Style # Modifica cor e estilo do text.
+from Animations_Cyberpunk import center_text # centra o text
 
 # Função para obter descrição de cada implante
-def get_descricao_implante(nome_implante):
-    descricao = descricao_implante.get(nome_implante,"Nunhuma informação disponível")
-    return "\n" + Fore.GREEN + Style.BRIGHT + nome_implante + Style.RESET_ALL + descricao
+def get_descricao_implante(name_implante):
+    descricao = descricao_implante.get(name_implante,"Nunhuma informação disponível")
+    return "\n" + Fore.GREEN + Style.BRIGHT + name_implante + Style.RESET_ALL + descricao
 
 # Função para obter descrição de cada classe
-def get_descricao_classe(nome_classe):
-    descricao = descricao_classe.get(nome_classe,"Nunhuma informação disponível")
-    return "\n" + Fore.GREEN + Style.BRIGHT + nome_classe + Style.RESET_ALL + descricao
+def get_descricao_classe(name_classe):
+    descricao = descricao_classe.get(name_classe,"Nunhuma informação disponível")
+    return "\n" + Fore.GREEN + Style.BRIGHT + name_classe + Style.RESET_ALL + descricao
 
 # Função para obter descrição da habilidade específica de cada classe
-def get_descricao_habilidade_classe(nome_classe):
-    tuplo = descricao_habilidade_classe.get(nome_classe,("-","Nunhuma informação disponível")) # Extrair o tuplo
-    nome_habilidade = tuplo[0]  # Extrair o primeiro elemento do tuplo
+def get_descricao_habilidade_classe(name_classe):
+    tuplo = descricao_habilidade_classe.get(name_classe,("-","Nunhuma informação disponível")) # Extrair o tuplo
+    name_habilidade = tuplo[0]  # Extrair o primeiro elemento do tuplo
     descricao_habilidade = tuplo[1]  # Extrair o segundo elemento do tuplo    
-    return "\n" + Fore.GREEN + Style.BRIGHT + nome_habilidade + Style.RESET_ALL + descricao_habilidade
+    return "\n" + Fore.GREEN + Style.BRIGHT + name_habilidade + Style.RESET_ALL + descricao_habilidade
 
-# Função para obter descrição de cada gangue
-def get_descricao_gangue(nome_gangue):
-    descricao = descricao_gangue.get(nome_gangue,"Nunhuma informação disponível")
-    return "\n" + Fore.GREEN + Style.BRIGHT + nome_gangue + Style.RESET_ALL + descricao
+# Função para obter descrição de cada gang
+def get_descricao_gangue(name_gangue):
+    descricao = descricao_gangue.get(name_gangue,"Nunhuma informação disponível")
+    return "\n" + Fore.GREEN + Style.BRIGHT + name_gangue + Style.RESET_ALL + descricao
 
 # Função para obter descrição de cada pack (nomad)
-def get_descricao_pack(nome_pack):
-    descricao = descricao_pack.get(nome_pack,"Nunhuma informação disponível")
-    return "\n" + Fore.GREEN + Style.BRIGHT + nome_pack + Style.RESET_ALL + descricao
+def get_descricao_pack(name_pack):
+    descricao = descricao_pack.get(name_pack,"Nunhuma informação disponível")
+    return "\n" + Fore.GREEN + Style.BRIGHT + name_pack + Style.RESET_ALL + descricao
 
-# Função para obter Lore de Cyberpunk / Textos singulares
-def get_lore_cyberpunk(nome_lore):
-    return lore_cyberpunk.get(nome_lore)
+# Função para obter Lore de Cyberpunk / texts singulares
+def get_lore_cyberpunk(name_lore):
+    return lore_cyberpunk.get(name_lore)
 
 # Descrição de cada IMPLANTE CIBERNÉTICO
 descricao_implante = {
@@ -103,7 +103,7 @@ Graças ao seu carisma, conseguem influenciar, incitar e encantar um grande núm
 Durante o dia, as ruas são dominadas pelos executivos corporativos e pelos trabalhadores que se deslocam para o trabalho.
 Mas à noite, os predadores saem dos seus esconderijos entre rochas e montes de lixo, e a cidade ganha vida.
 Apelidados de lixo das ruas, gangsters são na realidade os soberanos da noite na cidade.
-Seja um pequeno grupo de uma dúzia ou um exército de duzentos, cada gangue em Night City é tão diverso quanto a própria rua.
+Seja um pequeno grupo de uma dúzia ou um exército de duzentos, cada gang em Night City é tão diverso quanto a própria rua.
 Cromados, viciados e aberrantes, todos misturados numa mistura letal, regada abundantemente com sangue.
 """,
 "Polícia":"""
@@ -212,7 +212,7 @@ mas tem de retribuir essa ajuda ou perderá estatuto e sofrerá penalizações c
 """)
 }
 
-# Descrição de cada GANGUE
+# Descrição de cada gang
 descricao_gangue = {
 "Maelstrom":"""
 Desesperados por se tornarem mais máquina do que homem, sem se importarem com as consequências. 
@@ -260,7 +260,7 @@ Os Mox podem não ser tão numerosos ou territorialmente dominantes como outras 
 mas constituem uma força a ter em consideração.
 Sob a liderança de trabalhadoras do sexo, punks, anarquistas e membros de minorias sexuais,
 inspirados pelos princípios da falecida stripper transformada em dona de clube de strip, Elizabeth 'Lizzie' Borden,
-este gangue protege os seus membros contra a violência e o abuso.
+este gang protege os seus membros contra a violência e o abuso.
 No entanto, não se enganem ao idealizar.
 A sua forma de proteção não é isenta de derramamento de sangue,
 não é gratuita e está longe de ser desprovida de atividades obscuras.
@@ -287,7 +287,7 @@ No entanto, se saíres para as ruas deixando um rasto de destruição,
 eles certamente mostrarão interesse.
 O Barghest raramente expõe a sua cabeça fora de Dogtown.
 É aqui que são tratados como soberanos.
-Fora das suas muralhas, são apenas mais um gangue armado até aos dentes com armas perigosas.
+Fora das suas muralhas, são apenas mais um gang armado até aos dentes com armas perigosas.
 """
 }
 
@@ -317,7 +317,7 @@ onde transportam contrabando para quem estiver disposto a pagar.
 """
 }
 
-# Lore de Cyberpunk / Textos singulares
+# Lore de Cyberpunk / texts singulares
 lore_cyberpunk = {
 "O mundo de Cyberpunk":"""
 O mundo de Cyberpunk é um futuro distópico onde megacorporações

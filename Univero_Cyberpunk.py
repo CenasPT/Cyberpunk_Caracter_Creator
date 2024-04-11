@@ -9,8 +9,8 @@ def universo_cyberpunk():
     # Utilizador escolhe o tema
     while(True):
         os.system('cls')
-        print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nUNIVERSO CYBERPUNK")+Style.RESET_ALL)        
-        print(Fore.BLUE+Style.BRIGHT+centrar_texto("Descobre mais sobre o universo Cyberpunk")+Style.RESET_ALL)
+        print(Fore.BLUE+Style.BRIGHT+center_text("\nUNIVERSO CYBERPUNK")+Style.RESET_ALL)        
+        print(Fore.BLUE+Style.BRIGHT+center_text("Descobre mais sobre o universo Cyberpunk")+Style.RESET_ALL)
         # Lista que contém opções do menu
         escolhas = [            
             "O mundo de Cyberpunk",
@@ -24,14 +24,14 @@ def universo_cyberpunk():
         opcao = menu_escolhas(escolhas,"Escolhe o tema:")        
         if opcao == "Voltar ao Menu Principal":
             os.system('cls')
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nUNIVERSO CYBERPUNK")+Style.RESET_ALL)        
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto("Descobre mais sobre o universo Cyberpunk")+Style.RESET_ALL)
+            print(Fore.BLUE+Style.BRIGHT+center_text("\nUNIVERSO CYBERPUNK")+Style.RESET_ALL)        
+            print(Fore.BLUE+Style.BRIGHT+center_text("Descobre mais sobre o universo Cyberpunk")+Style.RESET_ALL)
             print("Voltando ao menu principal.")
             stop()
             return
         elif opcao == "O mundo de Cyberpunk":
             os.system('cls')
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nO MUNDO DE CYBERPUNK")+Style.RESET_ALL)
+            print(Fore.BLUE+Style.BRIGHT+center_text("\nO MUNDO DE CYBERPUNK")+Style.RESET_ALL)
             print(get_lore_cyberpunk(opcao))
             escolhas = [            
             "Universo Cyberpunk",
@@ -42,7 +42,7 @@ def universo_cyberpunk():
                 pass
             elif opcao == "Voltar ao Menu Principal":
                 os.system('cls')
-                print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nO MUNDO DE CYBERPUNK")+Style.RESET_ALL)
+                print(Fore.BLUE+Style.BRIGHT+center_text("\nO MUNDO DE CYBERPUNK")+Style.RESET_ALL)
                 print("Voltando ao menu principal.")
                 stop()
                 return
@@ -75,7 +75,7 @@ def universo_cyberpunk():
 def info_implantes_ciberneticos(contexto):
     while (True):
         os.system('cls')
-        print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nIMPLANTES CIBERNÉTICOS")+Style.RESET_ALL)
+        print(Fore.BLUE+Style.BRIGHT+center_text("\nIMPLANTES CIBERNÉTICOS")+Style.RESET_ALL)
         print(get_lore_cyberpunk("Implantes Cibernéticos"))
         if contexto == "Universo_Cyberpunk":
             escolhas = [ 
@@ -106,14 +106,14 @@ def info_implantes_ciberneticos(contexto):
             return "continuar"
         elif opcao == "Voltar ao Menu Principal":
             os.system('cls')
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nIMPLANTES CIBERNÉTICOS")+Style.RESET_ALL)
+            print(Fore.BLUE+Style.BRIGHT+center_text("\nIMPLANTES CIBERNÉTICOS")+Style.RESET_ALL)
             print("Voltando ao menu principal.")            
             stop()
             return "menu"
         else:
             os.system('cls')
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nIMPLANTES CIBERNÉTICOS")+Style.RESET_ALL)
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto(opcao)+Style.RESET_ALL)
+            print(Fore.BLUE+Style.BRIGHT+center_text("\nIMPLANTES CIBERNÉTICOS")+Style.RESET_ALL)
+            print(Fore.BLUE+Style.BRIGHT+center_text(opcao)+Style.RESET_ALL)
             print(get_descricao_implante(opcao))
             if contexto == "Universo_Cyberpunk":
                 escolhas = [ 
@@ -132,7 +132,7 @@ def info_implantes_ciberneticos(contexto):
                 return "continuar"
             elif opcao == "Voltar ao Menu Principal":
                 os.system('cls')
-                print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nIMPLANTES CIBERNÉTICOS")+Style.RESET_ALL)
+                print(Fore.BLUE+Style.BRIGHT+center_text("\nIMPLANTES CIBERNÉTICOS")+Style.RESET_ALL)
                 print("Voltando ao menu principal.")                
                 stop()
                 return "menu"
@@ -143,7 +143,7 @@ def info_implantes_ciberneticos(contexto):
 def info_ocupacoes(contexto):   
     while (True):
         os.system('cls')
-        print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nOCUPAÇÕES/PAPÉIS NA SOCIEDADE")+Style.RESET_ALL)
+        print(Fore.BLUE+Style.BRIGHT+center_text("\nOCUPAÇÕES/PAPÉIS NA SOCIEDADE")+Style.RESET_ALL)
         if contexto == "Universo_Cyberpunk":
             escolhas = [ 
             "Corpo",
@@ -179,14 +179,14 @@ def info_ocupacoes(contexto):
             return "continuar"
         elif opcao == "Voltar ao Menu Principal":
             os.system('cls')
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nOCUPAÇÕES/PAPÉIS NA SOCIEDADE")+Style.RESET_ALL)
+            print(Fore.BLUE+Style.BRIGHT+center_text("\nOCUPAÇÕES/PAPÉIS NA SOCIEDADE")+Style.RESET_ALL)
             print("Voltando ao menu principal.")
             stop()
             return "menu"
         else:
             os.system('cls')
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nOCUPAÇÕES/PAPÉIS NA SOCIEDADE")+Style.RESET_ALL)
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto(opcao)+Style.RESET_ALL)
+            print(Fore.BLUE+Style.BRIGHT+center_text("\nOCUPAÇÕES/PAPÉIS NA SOCIEDADE")+Style.RESET_ALL)
+            print(Fore.BLUE+Style.BRIGHT+center_text(opcao)+Style.RESET_ALL)
             print(get_descricao_classe(opcao))
             print(get_descricao_habilidade_classe(opcao))
             if contexto == "Universo_Cyberpunk":
@@ -206,7 +206,7 @@ def info_ocupacoes(contexto):
                 return "continuar"
             elif opcao == "Voltar ao Menu Principal":
                 os.system('cls')
-                print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nOCUPAÇÕES/PAPÉIS NA SOCIEDADE")+Style.RESET_ALL)
+                print(Fore.BLUE+Style.BRIGHT+center_text("\nOCUPAÇÕES/PAPÉIS NA SOCIEDADE")+Style.RESET_ALL)
                 print("Voltando ao menu principal.")
                 stop()
                 return "menu"
@@ -217,7 +217,7 @@ def info_ocupacoes(contexto):
 def info_gangues(contexto):
     while (True):
         os.system('cls')
-        print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nGANGUES")+Style.RESET_ALL)
+        print(Fore.BLUE+Style.BRIGHT+center_text("\nGANGUES")+Style.RESET_ALL)
         if contexto == "Universo_Cyberpunk":
             escolhas = [ 
             "Maelstrom",
@@ -251,14 +251,14 @@ def info_gangues(contexto):
             return "continuar"
         elif opcao == "Voltar ao Menu Principal":
             os.system('cls')
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nGANGUES")+Style.RESET_ALL)
+            print(Fore.BLUE+Style.BRIGHT+center_text("\nGANGUES")+Style.RESET_ALL)
             print("Voltando ao menu principal.")
             stop()
             return "menu"
         else:
             os.system('cls')
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nGANGUES")+Style.RESET_ALL)
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto(opcao)+Style.RESET_ALL)
+            print(Fore.BLUE+Style.BRIGHT+center_text("\nGANGUES")+Style.RESET_ALL)
+            print(Fore.BLUE+Style.BRIGHT+center_text(opcao)+Style.RESET_ALL)
             print(get_descricao_gangue(opcao))
             if contexto == "Universo_Cyberpunk":
                 escolhas = [ 
@@ -277,7 +277,7 @@ def info_gangues(contexto):
                 return "continuar"
             elif opcao == "Voltar ao Menu Principal":
                 os.system('cls')
-                print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nGANGUES")+Style.RESET_ALL)
+                print(Fore.BLUE+Style.BRIGHT+center_text("\nGANGUES")+Style.RESET_ALL)
                 print("Voltando ao menu principal.")
                 stop()
                 return "menu"
@@ -288,7 +288,7 @@ def info_gangues(contexto):
 def info_nomad_packs(contexto):
     while (True):
         os.system('cls')
-        print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nNOMAD PACKS")+Style.RESET_ALL)
+        print(Fore.BLUE+Style.BRIGHT+center_text("\nNOMAD PACKS")+Style.RESET_ALL)
         if contexto == "Universo_Cyberpunk":
             escolhas = [ 
             "Wraiths",
@@ -308,14 +308,14 @@ def info_nomad_packs(contexto):
             return "continuar"
         elif opcao == "Voltar ao Menu Principal":
             os.system('cls')
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nNOMAD PACKS")+Style.RESET_ALL)
+            print(Fore.BLUE+Style.BRIGHT+center_text("\nNOMAD PACKS")+Style.RESET_ALL)
             print("Voltando ao menu principal.")
             stop()
             return "menu"
         else:
             os.system('cls')
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nNOMAD PACKS")+Style.RESET_ALL)
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto(opcao)+Style.RESET_ALL)
+            print(Fore.BLUE+Style.BRIGHT+center_text("\nNOMAD PACKS")+Style.RESET_ALL)
+            print(Fore.BLUE+Style.BRIGHT+center_text(opcao)+Style.RESET_ALL)
             print(get_descricao_pack(opcao))
             if contexto == "Universo_Cyberpunk":
                 escolhas = [ 
@@ -334,7 +334,7 @@ def info_nomad_packs(contexto):
                 return "continuar"
             elif opcao == "Voltar ao Menu Principal":
                 os.system('cls')
-                print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nNOMAD PACKS")+Style.RESET_ALL)
+                print(Fore.BLUE+Style.BRIGHT+center_text("\nNOMAD PACKS")+Style.RESET_ALL)
                 print("Voltando ao menu principal.")                
                 stop()
                 return "menu"

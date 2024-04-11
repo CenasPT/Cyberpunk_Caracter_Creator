@@ -43,7 +43,7 @@ def menu_escolhas(escolha,mensagem):
 # Recebe ficheiro CSV e retorna uma dataframe
 # Cria ficheiro CSV caso não exista
 def carregar_dataframe(ficheiro):    
-    cabecalho = ['                Nome','|  Nível Inicial','|   Nível Máximo','|       Ocupação','|    Gangue/Pack','|       Implante Cibernético','Informação Adicional']   
+    cabecalho = ['                name','|  Nível Inicial','|   Nível Máximo','|       Ocupação','|    gang/Pack','|       Implante Cibernético','Informação Adicional']   
     # Confirmar se o ficheiro existe
     try:
         # Tentar ler o ficheiro CSV
@@ -52,30 +52,30 @@ def carregar_dataframe(ficheiro):
         # Criar novo DataFrame caso ficheiro não exista         
         dataframe=pd.DataFrame(columns=cabecalho)
         dataframe.to_csv(ficheiro, encoding='utf-8',index=False)
-        inserir_dados_ficheiro(Johnny.nome,Johnny.nivel_inicial,Johnny.nivel_max,Johnny.ocupacao,Johnny.gangue,Johnny.implante_cibernetico,Johnny.info_adicional) 
-        inserir_dados_ficheiro(Morgan.nome,Morgan.nivel_inicial,Morgan.nivel_max,Morgan.ocupacao,Morgan.gangue,Morgan.implante_cibernetico,Morgan.info_adicional)
-        inserir_dados_ficheiro(Alt.nome,Alt.nivel_inicial,Alt.nivel_max,Alt.ocupacao,Alt.gangue,Alt.implante_cibernetico,Alt.info_adicional) 
-        inserir_dados_ficheiro(Saburo.nome,Saburo.nivel_inicial,Saburo.nivel_max,Saburo.ocupacao,Saburo.gangue,Saburo.implante_cibernetico,Saburo.info_adicional) 
-        inserir_dados_ficheiro(Smasher.nome,Smasher.nivel_inicial,Smasher.nivel_max,Smasher.ocupacao,Smasher.gangue,Smasher.implante_cibernetico,Smasher.info_adicional) 
-        inserir_dados_ficheiro(Rogue.nome,Rogue.nivel_inicial,Rogue.nivel_max,Rogue.ocupacao,Rogue.gangue,Rogue.implante_cibernetico,Rogue.info_adicional) 
-        inserir_dados_ficheiro(Bartmoss.nome,Bartmoss.nivel_inicial,Bartmoss.nivel_max,Bartmoss.ocupacao,Bartmoss.gangue,Bartmoss.implante_cibernetico,Bartmoss.info_adicional) 
+        inserir_dados_ficheiro(Johnny.name,Johnny.initial_level,Johnny.max_level,Johnny.occupation,Johnny.gang,Johnny.implante_cibernetico,Johnny.info_adicional) 
+        inserir_dados_ficheiro(Morgan.name,Morgan.initial_level,Morgan.max_level,Morgan.occupation,Morgan.gang,Morgan.implante_cibernetico,Morgan.info_adicional)
+        inserir_dados_ficheiro(Alt.name,Alt.initial_level,Alt.max_level,Alt.occupation,Alt.gang,Alt.implante_cibernetico,Alt.info_adicional) 
+        inserir_dados_ficheiro(Saburo.name,Saburo.initial_level,Saburo.max_level,Saburo.occupation,Saburo.gang,Saburo.implante_cibernetico,Saburo.info_adicional) 
+        inserir_dados_ficheiro(Smasher.name,Smasher.initial_level,Smasher.max_level,Smasher.occupation,Smasher.gang,Smasher.implante_cibernetico,Smasher.info_adicional) 
+        inserir_dados_ficheiro(Rogue.name,Rogue.initial_level,Rogue.max_level,Rogue.occupation,Rogue.gang,Rogue.implante_cibernetico,Rogue.info_adicional) 
+        inserir_dados_ficheiro(Bartmoss.name,Bartmoss.initial_level,Bartmoss.max_level,Bartmoss.occupation,Bartmoss.gang,Bartmoss.implante_cibernetico,Bartmoss.info_adicional) 
         dataframe=pd.read_csv(ficheiro,encoding='utf-8') 
     return dataframe
 
-# Recebe uma dataframe, texto1 e texto2 
-# Exibe o texto 1, texto 2 e todos os dados desse dataframe excepto a última coluna
-def exibir_dataframe_limitada(dataframe,texto1,texto2):
-    print(Fore.BLUE+Style.BRIGHT+centrar_texto(texto1)+Style.RESET_ALL)
-    print(Fore.BLUE+Style.BRIGHT+centrar_texto(texto2)+Style.RESET_ALL)
-    dataframe_limitada=dataframe[['                Nome','|  Nível Inicial','|   Nível Máximo','|       Ocupação','|    Gangue/Pack','|       Implante Cibernético']] # Cortar a última coluna (informacao_adicional)
+# Recebe uma dataframe, text1 e text2 
+# Exibe o text 1, text 2 e todos os dados desse dataframe excepto a última coluna
+def exibir_dataframe_limitada(dataframe,text1,text2):
+    print(Fore.BLUE+Style.BRIGHT+center_text(text1)+Style.RESET_ALL)
+    print(Fore.BLUE+Style.BRIGHT+center_text(text2)+Style.RESET_ALL)
+    dataframe_limitada=dataframe[['                name','|  Nível Inicial','|   Nível Máximo','|       Ocupação','|    gang/Pack','|       Implante Cibernético']] # Cortar a última coluna (informacao_adicional)
     print(Fore.GREEN+Style.BRIGHT+dataframe_limitada.to_string(index=False)+Style.RESET_ALL+"\n")
 
 # Insere dados no ficheiro CSV (variavel constante)
-def inserir_dados_ficheiro(nome,nivelinicial,nivelmax,ocupacao,gangue_pack,implante,info_adicional):
+def inserir_dados_ficheiro(name,nivelinicial,nivelmax,occupation,gangue_pack,implante,info_adicional):
     FICHEIRO_CSV = 'CyberChar.csv'
     dataframe = carregar_dataframe(FICHEIRO_CSV)           
     # Introdução de novos dados no DataFrame               
-    nova_linha = {'                Nome':nome,'|  Nível Inicial':nivelinicial,'|   Nível Máximo':nivelmax,'|       Ocupação':ocupacao,'|    Gangue/Pack':gangue_pack,'|       Implante Cibernético':implante,'Informação Adicional':info_adicional}
+    nova_linha = {'                name':name,'|  Nível Inicial':nivelinicial,'|   Nível Máximo':nivelmax,'|       Ocupação':occupation,'|    gang/Pack':gangue_pack,'|       Implante Cibernético':implante,'Informação Adicional':info_adicional}
     dataframe.loc[len(dataframe)] = nova_linha    
     # Escrever Dados Novos no Ficheiro
     dataframe.to_csv(FICHEIRO_CSV, encoding='utf-8',index=False)
@@ -87,42 +87,42 @@ def criar_personagem():
     nivelmax = random.randint(15,20) 
     # Iniciação obrigatória de variável que será utilizada mais à frente 
     opcao = ""
-    # Carrega ficheiro csv para de seguida extrair os nomes dos personagens
+    # Carrega ficheiro csv para de seguida extrair os names dos personagens
     FICHEIRO_CSV = 'CyberChar.csv' 
     dataframe = carregar_dataframe(FICHEIRO_CSV)
-    # Guardar todos os nomes presentes no ficheiro csv numa lista (com caracteres pequenos)
-    lista_nomes = dataframe['                Nome'].str.lower().values 
-    # Definir o nome do personagem
+    # Guardar todos os names presentes no ficheiro csv numa lista (com caracteres pequenos)
+    lista_names = dataframe['                name'].str.lower().values 
+    # Definir o name do personagem
     while(True):
         os.system('cls')
-        print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nCRIAR NOVO PERSONAGEM")+Style.RESET_ALL)
-        print(Fore.BLUE+Style.BRIGHT+centrar_texto("digita 'cancelar' ou pressiona 'Enter' com nome em branco para voltar ao menu principal\n")+Style.RESET_ALL)
+        print(Fore.BLUE+Style.BRIGHT+center_text("\nCRIAR NOVO PERSONAGEM")+Style.RESET_ALL)
+        print(Fore.BLUE+Style.BRIGHT+center_text("digita 'cancelar' ou pressiona 'Enter' com name em branco para voltar ao menu principal\n")+Style.RESET_ALL)
         if opcao == "invalida":                                        
-            print(Fore.RED+Style.BRIGHT+centrar_texto("Erro ao digitar nome")+Style.RESET_ALL) 
+            print(Fore.RED+Style.BRIGHT+center_text("Erro ao digitar name")+Style.RESET_ALL) 
         elif opcao == "existe":                                        
-            print(Fore.RED+Style.BRIGHT+centrar_texto("Nome já existe")+Style.RESET_ALL) 
+            print(Fore.RED+Style.BRIGHT+center_text("name já existe")+Style.RESET_ALL) 
         try:       
-            nome=(input("Digita o nome do personagem (até 15 caracteres): ").strip()) # .strip() retira espaços em branco no inicio e fim da string
+            name=(input("Digita o name do personagem (até 15 caracteres): ").strip()) # .strip() retira espaços em branco no inicio e fim da string
         except ValueError:
             pass 
-        if nome.strip().lower() == "cancelar" or nome.strip().lower() == '':
+        if name.strip().lower() == "cancelar" or name.strip().lower() == '':
             os.system('cls')
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nCRIAR NOVO PERSONAGEM")+Style.RESET_ALL)
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto("digita 'cancelar' ou pressiona 'Enter' com nome em branco para voltar ao menu principal\n")+Style.RESET_ALL)
+            print(Fore.BLUE+Style.BRIGHT+center_text("\nCRIAR NOVO PERSONAGEM")+Style.RESET_ALL)
+            print(Fore.BLUE+Style.BRIGHT+center_text("digita 'cancelar' ou pressiona 'Enter' com name em branco para voltar ao menu principal\n")+Style.RESET_ALL)
             print("Operação Cancelada. Voltando ao menu principal.")
             stop()
             return
-        elif nome.strip().lower() in lista_nomes:
+        elif name.strip().lower() in lista_names:
             opcao = "existe"
-        elif len(nome) <= 15 and nome.lower() not in lista_nomes: # Verifica se a string possui menos de 16 caracteres e se o nome não é repetido
+        elif len(name) <= 15 and name.lower() not in lista_names: # Verifica se a string possui menos de 16 caracteres e se o name não é repetido
             break                     
         else:
             opcao = "invalida" 
     # Definir a ocupação do personagem 
     while(True):        
         os.system('cls')
-        print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nOCUPAÇÃO DO PERSONAGEM")+Style.RESET_ALL)
-        print(Fore.BLUE+Style.BRIGHT+centrar_texto("opção 'cancelar' volta ao menu principal\n")+Style.RESET_ALL)
+        print(Fore.BLUE+Style.BRIGHT+center_text("\nOCUPAÇÃO DO PERSONAGEM")+Style.RESET_ALL)
+        print(Fore.BLUE+Style.BRIGHT+center_text("opção 'cancelar' volta ao menu principal\n")+Style.RESET_ALL)
         # Lista que contém opções do menu
         escolhas = [            
         "Corpo",
@@ -140,25 +140,25 @@ def criar_personagem():
         "Cancelar"
         ]
         # Exibir o menu utilizando a função menu_escolhas()
-        ocupacao = menu_escolhas(escolhas,"Escolhe a ocupação / papel na sociedade:")
-        if ocupacao == "Cancelar":
+        occupation = menu_escolhas(escolhas,"Escolhe a ocupação / papel na sociedade:")
+        if occupation == "Cancelar":
             os.system('cls')
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nOCUPAÇÃO DO PERSONAGEM")+Style.RESET_ALL)
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto("opção 'cancelar' volta ao menu principal\n")+Style.RESET_ALL) 
+            print(Fore.BLUE+Style.BRIGHT+center_text("\nOCUPAÇÃO DO PERSONAGEM")+Style.RESET_ALL)
+            print(Fore.BLUE+Style.BRIGHT+center_text("opção 'cancelar' volta ao menu principal\n")+Style.RESET_ALL) 
             print("Operação Cancelada. Voltando ao menu principal.")
             stop()
             return 
-        elif ocupacao == "Corpo":        
-            personagem = Corpo(nome,nivelinicial,nivelmax)
+        elif occupation == "Corpo":        
+            personagem = Corpo(name,nivelinicial,nivelmax)
             break
-        elif ocupacao == "Rockerboy":        
-            personagem = Rockerboy(nome,nivelinicial,nivelmax)
+        elif occupation == "Rockerboy":        
+            personagem = Rockerboy(name,nivelinicial,nivelmax)
             break
-        elif ocupacao == "Gangster":
-            # Escolha do gangue a que o personagem gangster pertence
+        elif occupation == "Gangster":
+            # Escolha do gang a que o personagem gangster pertence
             os.system('cls')
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nGANGUE DO PERSONAGEM")+Style.RESET_ALL)
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto("opção 'cancelar' volta ao menu principal\n")+Style.RESET_ALL)
+            print(Fore.BLUE+Style.BRIGHT+center_text("\nGANGUE DO PERSONAGEM")+Style.RESET_ALL)
+            print(Fore.BLUE+Style.BRIGHT+center_text("opção 'cancelar' volta ao menu principal\n")+Style.RESET_ALL)
             escolhas = [            
             "Maelstrom",
             "Valentinos",
@@ -173,50 +173,50 @@ def criar_personagem():
             "Info sobre Gangues",
             "Cancelar"
             ]
-            gangue = menu_escolhas(escolhas,"Escolhe a gangue:")
-            if gangue == "Cancelar":
+            gang = menu_escolhas(escolhas,"Escolhe a gang:")
+            if gang == "Cancelar":
                 os.system('cls')
-                print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nGANGUE DO PERSONAGEM")+Style.RESET_ALL)
-                print(Fore.BLUE+Style.BRIGHT+centrar_texto("opção 'cancelar' volta ao menu principal\n")+Style.RESET_ALL)
+                print(Fore.BLUE+Style.BRIGHT+center_text("\nGANGUE DO PERSONAGEM")+Style.RESET_ALL)
+                print(Fore.BLUE+Style.BRIGHT+center_text("opção 'cancelar' volta ao menu principal\n")+Style.RESET_ALL)
                 print("Operação Cancelada. Voltando ao menu principal.")
                 stop()
                 return 
-            elif gangue == "Indefinido":
-                gangue = "-"
-                personagem = Gangster(nome,nivelinicial,nivelmax,gangue) 
+            elif gang == "Indefinido":
+                gang = "-"
+                personagem = Gangster(name,nivelinicial,nivelmax,gang) 
                 break
-            elif gangue == "Info sobre Gangues":
+            elif gang == "Info sobre Gangues":
                 resultado = info_gangues("Criar_Personagem")
                 if resultado == "continuar":
                     continue
                 elif resultado == "menu":                    
                     return                          
             else:                             
-                personagem = Gangster(nome,nivelinicial,nivelmax,gangue) 
+                personagem = Gangster(name,nivelinicial,nivelmax,gang) 
                 break
-        elif ocupacao == "Polícia":        
-            personagem = Policia(nome,nivelinicial,nivelmax)
+        elif occupation == "Polícia":        
+            personagem = Policia(name,nivelinicial,nivelmax)
             break
-        elif ocupacao == "Solo":        
-            personagem = Solo(nome,nivelinicial,nivelmax)
+        elif occupation == "Solo":        
+            personagem = Solo(name,nivelinicial,nivelmax)
             break
-        elif ocupacao == "Netrunner":        
-            personagem = Netrunner(nome,nivelinicial,nivelmax)
+        elif occupation == "Netrunner":        
+            personagem = Netrunner(name,nivelinicial,nivelmax)
             break
-        elif ocupacao == "Techie":        
-            personagem = Techie(nome,nivelinicial,nivelmax)
+        elif occupation == "Techie":        
+            personagem = Techie(name,nivelinicial,nivelmax)
             break
-        elif ocupacao == "Media":        
-            personagem = Media(nome,nivelinicial,nivelmax)
+        elif occupation == "Media":        
+            personagem = Media(name,nivelinicial,nivelmax)
             break
-        elif ocupacao == "Fixer":        
-            personagem = Fixer(nome,nivelinicial,nivelmax)
+        elif occupation == "Fixer":        
+            personagem = Fixer(name,nivelinicial,nivelmax)
             break
-        elif ocupacao == "Nomad":
+        elif occupation == "Nomad":
             # Escolha do pack a que o personagem nomad pertence
             os.system('cls')
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nPACK DO PERSONAGEM")+Style.RESET_ALL)
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto("opção 'cancelar' volta ao menu principal\n")+Style.RESET_ALL)
+            print(Fore.BLUE+Style.BRIGHT+center_text("\nPACK DO PERSONAGEM")+Style.RESET_ALL)
+            print(Fore.BLUE+Style.BRIGHT+center_text("opção 'cancelar' volta ao menu principal\n")+Style.RESET_ALL)
             escolhas = [            
             "Wraiths",
             "Aldecaldos",
@@ -227,14 +227,14 @@ def criar_personagem():
             pack = menu_escolhas(escolhas,"Escolhe o pack nómada:")
             if pack == "Cancelar":
                 os.system('cls')
-                print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nPACK DO PERSONAGEM")+Style.RESET_ALL)
-                print(Fore.BLUE+Style.BRIGHT+centrar_texto("opção 'cancelar' volta ao menu principal\n")+Style.RESET_ALL) 
+                print(Fore.BLUE+Style.BRIGHT+center_text("\nPACK DO PERSONAGEM")+Style.RESET_ALL)
+                print(Fore.BLUE+Style.BRIGHT+center_text("opção 'cancelar' volta ao menu principal\n")+Style.RESET_ALL) 
                 print("Operação Cancelada. Voltando ao menu principal.")
                 stop()
                 return
             elif pack == "Indefinido":
                 pack = "-"
-                personagem = Nomad(nome,nivelinicial,nivelmax,pack)
+                personagem = Nomad(name,nivelinicial,nivelmax,pack)
                 break
             elif pack == "Info sobre Packs":
                 resultado = info_nomad_packs("Criar_Personagem")
@@ -243,13 +243,13 @@ def criar_personagem():
                 elif resultado == "menu":
                     return 
             else:     
-                personagem = Nomad(nome,nivelinicial,nivelmax,pack)
+                personagem = Nomad(name,nivelinicial,nivelmax,pack)
                 break
-        elif ocupacao == "Indefinido":
-            ocupacao = "-"                    
-            personagem = Personagem(nome,nivelinicial,nivelmax)
+        elif occupation == "Indefinido":
+            occupation = "-"                    
+            personagem = Character(name,nivelinicial,nivelmax)
             break
-        elif ocupacao == "Info sobre Ocupações/Papéis":
+        elif occupation == "Info sobre Ocupações/Papéis":
             resultado = info_ocupacoes("Criar_Personagem")
             if resultado == "continuar":
                 continue
@@ -259,8 +259,8 @@ def criar_personagem():
     # Escolha do implante cibernético de destaque 
     while(True):                 
         os.system('cls')
-        print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nIMPLANTE CIBERNÉTICO DO PERSONAGEM")+Style.RESET_ALL)
-        print(Fore.BLUE+Style.BRIGHT+centrar_texto("opção 'cancelar' volta ao menu principal\n")+Style.RESET_ALL)
+        print(Fore.BLUE+Style.BRIGHT+center_text("\nIMPLANTE CIBERNÉTICO DO PERSONAGEM")+Style.RESET_ALL)
+        print(Fore.BLUE+Style.BRIGHT+center_text("opção 'cancelar' volta ao menu principal\n")+Style.RESET_ALL)
         escolhas = [            
         "Sandevistan",
         "Monowire",
@@ -276,14 +276,14 @@ def criar_personagem():
         implante = menu_escolhas(escolhas,"Escolhe o Implante Cibernético de Destaque:")
         if implante == "Cancelar":
             os.system('cls')
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nIMPLANTE CIBERNÉTICO DO PERSONAGEM")+Style.RESET_ALL)
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto("opção 'cancelar' volta ao menu principal\n")+Style.RESET_ALL)
+            print(Fore.BLUE+Style.BRIGHT+center_text("\nIMPLANTE CIBERNÉTICO DO PERSONAGEM")+Style.RESET_ALL)
+            print(Fore.BLUE+Style.BRIGHT+center_text("opção 'cancelar' volta ao menu principal\n")+Style.RESET_ALL)
             print("Operação Cancelada. Voltando ao menu principal.")
             stop()
             return
         elif implante == "Indefinido":
             implante = "-"
-            personagem.set_implante_cibernetico(implante)
+            personagem.set_cybernetic_implant(implante)
             break 
         elif implante == "Info sobre Implantes Cibernéticos":
             resultado = info_implantes_ciberneticos("Criar_Personagem")
@@ -292,25 +292,25 @@ def criar_personagem():
             elif resultado == "menu":
                 return 
         else:
-            personagem.set_implante_cibernetico(implante)            
+            personagem.set_cybernetic_implant(implante)            
             break    
 
-    # Inserir informação adicional sobre o personagem em forma de texto
+    # Inserir informação adicional sobre o personagem em forma de text
     opcao = ""
     while(True):        
         os.system('cls')
-        print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nINFO SOBRE PERSONAGEM")+Style.RESET_ALL)
-        print(Fore.BLUE+Style.BRIGHT+centrar_texto("digita 'cancelar' a qualquer momento para voltar ao menu principal\n")+Style.RESET_ALL)  
+        print(Fore.BLUE+Style.BRIGHT+center_text("\nINFO SOBRE PERSONAGEM")+Style.RESET_ALL)
+        print(Fore.BLUE+Style.BRIGHT+center_text("digita 'cancelar' a qualquer momento para voltar ao menu principal\n")+Style.RESET_ALL)  
         if opcao == "invalida":                                                      
-            print(Fore.RED+Style.BRIGHT+centrar_texto("Deve conter alguma informação")+Style.RESET_ALL) 
+            print(Fore.RED+Style.BRIGHT+center_text("Deve conter alguma informação")+Style.RESET_ALL) 
         try:     
-            info_adicional=(input("Digita um pequeno texto que contenha informação adicional sobre o personagem:\n").strip())
+            info_adicional=(input("Digita um pequeno text que contenha informação adicional sobre o personagem:\n").strip())
         except ValueError:
             pass 
         if info_adicional.strip().lower() == "cancelar":
             os.system('cls')
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto("\nINFO SOBRE PERSONAGEM")+Style.RESET_ALL)
-            print(Fore.BLUE+Style.BRIGHT+centrar_texto("digita 'cancelar' a qualquer momento para voltar ao menu principal\n")+Style.RESET_ALL) 
+            print(Fore.BLUE+Style.BRIGHT+center_text("\nINFO SOBRE PERSONAGEM")+Style.RESET_ALL)
+            print(Fore.BLUE+Style.BRIGHT+center_text("digita 'cancelar' a qualquer momento para voltar ao menu principal\n")+Style.RESET_ALL) 
             print("Operação Cancelada. Voltando ao menu principal.")
             stop()
             return
@@ -320,14 +320,14 @@ def criar_personagem():
         else:
             opcao = "invalida"
     if isinstance(personagem,Nomad):
-        inserir_dados_ficheiro(personagem.nome,personagem.nivel_inicial,personagem.nivel_max,personagem.ocupacao,personagem.pack,personagem.implante_cibernetico,personagem.info_adicional)
+        inserir_dados_ficheiro(personagem.name,personagem.initial_level,personagem.max_level,personagem.occupation,personagem.pack,personagem.implante_cibernetico,personagem.info_adicional)
     else:
-        inserir_dados_ficheiro(personagem.nome,personagem.nivel_inicial,personagem.nivel_max,personagem.ocupacao,personagem.gangue,personagem.implante_cibernetico,personagem.info_adicional) 
-    texto_personagem_criado_animado()  
-    # Conteúdo da função stop() escrito diretamente porque neste caso específico, o texto fica centrado no terminal
+        inserir_dados_ficheiro(personagem.name,personagem.initial_level,personagem.max_level,personagem.occupation,personagem.gang,personagem.implante_cibernetico,personagem.info_adicional) 
+    animated_character_created_text()  
+    # Conteúdo da função stop() escrito diretamente porque neste caso específico, o text fica centrado no terminal
     for i in range(3,0,-1):
-        print("\r",end=" ",flush=True) # \r move o cursor para o início da linha (se não o fizer, centrar_texto distorce o posicionamento do print)
-        print(Fore.GREEN+Style.BRIGHT+centrar_texto(f"{i}")+Style.RESET_ALL)
+        print("\r",end=" ",flush=True) # \r move o cursor para o início da linha (se não o fizer, center_text distorce o posicionamento do print)
+        print(Fore.GREEN+Style.BRIGHT+center_text(f"{i}")+Style.RESET_ALL)
         time.sleep(1) 
 
 # Submenu que apresenta lista de personagens e apresenta algumas opções ao utilizador
@@ -337,27 +337,27 @@ def listar_personagens():
     while(True):        
         os.system('cls') 
         FICHEIRO_CSV = 'CyberChar.csv'
-        texto1 = "LISTA DE PERSONAGENS"
-        texto2 = "digita 'cancelar' ou pressiona 'Enter' com nome em branco para voltar ao menu principal\n"
+        text1 = "LISTA DE PERSONAGENS"
+        text2 = "digita 'cancelar' ou pressiona 'Enter' com name em branco para voltar ao menu principal\n"
         dataframe = carregar_dataframe(FICHEIRO_CSV)
-        exibir_dataframe_limitada(dataframe,texto1,texto2)
+        exibir_dataframe_limitada(dataframe,text1,text2)
         if opcao == "invalida":                                        
-            print(Fore.RED+Style.BRIGHT+centrar_texto("Personagem não encontrado")+Style.RESET_ALL)       
-        nome_personagem = input("Digita o nome de qualquer personagem para ver mais informações: ")
+            print(Fore.RED+Style.BRIGHT+center_text("Personagem não encontrado")+Style.RESET_ALL)       
+        name_personagem = input("Digita o name de qualquer personagem para ver mais informações: ")
         # Tirar espaços (no início e fim) e uppercase da string
-        nome_personagem_final = nome_personagem.strip().lower()
-        # Transferir nomes da dataframe para uma series
+        name_personagem_final = name_personagem.strip().lower()
+        # Transferir names da dataframe para uma series
         # Tirar espaços (no início e fim) e uppercase da dataframe
-        series_nomes_dataframe = dataframe['                Nome'].str.strip().str.lower()
-        # Comparação de strings. nome_personagem_final existe ou não dentro da series
-        nome_combina = series_nomes_dataframe.str.contains(nome_personagem_final)  
+        series_names_dataframe = dataframe['                name'].str.strip().str.lower()
+        # Comparação de strings. name_personagem_final existe ou não dentro da series
+        name_combina = series_names_dataframe.str.contains(name_personagem_final)  
                         
-        if nome_personagem_final.strip().lower() == 'cancelar' or nome_personagem_final.strip().lower() == '':
+        if name_personagem_final.strip().lower() == 'cancelar' or name_personagem_final.strip().lower() == '':
             print("\nVoltando ao menu principal.")
             stop()
             return 
-        elif any(nome_combina):
-            resultado = exibir_info_personagem(dataframe,nome_combina,texto1,texto2)
+        elif any(name_combina):
+            resultado = exibir_info_personagem(dataframe,name_combina,text1,text2)
             if resultado == "lista":
                 continue
             elif resultado == "menu":
@@ -366,40 +366,40 @@ def listar_personagens():
             opcao = "invalida"               
 
 # Apresentar Informações sobre personagem específico
-def exibir_info_personagem(dataframe,nome_combina,texto1,texto2):    
-    dataframe_personagem = dataframe[nome_combina].head(1)
-    nome = dataframe_personagem['                Nome'].values[0] # Extrair informação (nome) da Dataframe
+def exibir_info_personagem(dataframe,name_combina,text1,text2):    
+    dataframe_personagem = dataframe[name_combina].head(1)
+    name = dataframe_personagem['                name'].values[0] # Extrair informação (name) da Dataframe
     # Iniciação obrigatória de variável que será utilizada mais à frente
     opcao = ""
     while(True):
         os.system('cls')
-        exibir_dataframe_limitada(dataframe,texto1,texto2)
+        exibir_dataframe_limitada(dataframe,text1,text2)
         # Lista que contém opções do menu
         escolhas = [            
             "Sim",
             "Escolher outro personagem"
         ]
         # Exibir o menu utilizando a função menu_escolhas()
-        opcao = menu_escolhas(escolhas,(f"Ver informação sobre '{nome}'?"))          
+        opcao = menu_escolhas(escolhas,(f"Ver informação sobre '{name}'?"))          
         if opcao == "Sim":                    
             # Extrair restante informação da Dataframe                        
-            nivel_inicial = dataframe_personagem['|  Nível Inicial'].values[0]
-            nivel_max = dataframe_personagem['|   Nível Máximo'].values[0]
-            ocupacao = dataframe_personagem['|       Ocupação'].values[0]
-            gangue_pack = dataframe_personagem['|    Gangue/Pack'].values[0]
+            initial_level = dataframe_personagem['|  Nível Inicial'].values[0]
+            max_level = dataframe_personagem['|   Nível Máximo'].values[0]
+            occupation = dataframe_personagem['|       Ocupação'].values[0]
+            gangue_pack = dataframe_personagem['|    gang/Pack'].values[0]
             implante = dataframe_personagem['|       Implante Cibernético'].values[0]
             info_adicional = dataframe_personagem['Informação Adicional'].values[0]
             # Instânciar o personagem de uma forma dinâmica com os dados extraidos e apresentar os dados            
             while(True): 
                 os.system('cls')
-                # Procurar "ocupacao" em todas as variáveis, funções e classes globais
-                class_ocupacao = globals().get(ocupacao)
+                # Procurar "occupation" em todas as variáveis, funções e classes globais
+                class_ocupacao = globals().get(occupation)
 
-                if ocupacao == "Gangster":
-                    personagem = class_ocupacao(nome,nivel_inicial,nivel_max,gangue_pack)
-                    personagem.get_nome_centrado()
+                if occupation == "Gangster":
+                    personagem = class_ocupacao(name,initial_level,max_level,gangue_pack)
+                    personagem.get_name_centrado()
                     personagem.get_descricao()
-                    personagem.set_implante_cibernetico(implante)
+                    personagem.set_cybernetic_implant(implante)
                     personagem.get_implante_cibernetico()
                     personagem.set_info_adicional(info_adicional)
                     personagem.get_info_adicional()
@@ -408,16 +408,16 @@ def exibir_info_personagem(dataframe,nome_combina,texto1,texto2):
                     "Info sobre Ocupação",
                     "Info sobre Implante",
                     "Info sobre Habilidade Especial",
-                    "Info sobre Gangue",
+                    "Info sobre gang",
                     "Escolher outro personagem",
                     "Voltar ao menu principal"
                     ] 
                     
-                elif ocupacao == "Nomad":
-                    personagem = class_ocupacao(nome,nivel_inicial,nivel_max,gangue_pack)
-                    personagem.get_nome_centrado()
+                elif occupation == "Nomad":
+                    personagem = class_ocupacao(name,initial_level,max_level,gangue_pack)
+                    personagem.get_name_centrado()
                     personagem.get_descricao()
-                    personagem.set_implante_cibernetico(implante)
+                    personagem.set_cybernetic_implant(implante)
                     personagem.get_implante_cibernetico()
                     personagem.set_info_adicional(info_adicional)
                     personagem.get_info_adicional()
@@ -431,11 +431,11 @@ def exibir_info_personagem(dataframe,nome_combina,texto1,texto2):
                     "Voltar ao menu principal"
                     ] 
 
-                elif ocupacao == "-":
-                    personagem = Personagem(nome,nivel_inicial,nivel_max)
-                    personagem.get_nome_centrado()
+                elif occupation == "-":
+                    personagem = Character(name,initial_level,max_level)
+                    personagem.get_name_centrado()
                     personagem.get_descricao()
-                    personagem.set_implante_cibernetico(implante)
+                    personagem.set_cybernetic_implant(implante)
                     personagem.get_implante_cibernetico()
                     personagem.set_info_adicional(info_adicional)
                     personagem.get_info_adicional()
@@ -449,10 +449,10 @@ def exibir_info_personagem(dataframe,nome_combina,texto1,texto2):
                     ] 
 
                 else:
-                    personagem = class_ocupacao(nome,nivel_inicial,nivel_max)
-                    personagem.get_nome_centrado()
+                    personagem = class_ocupacao(name,initial_level,max_level)
+                    personagem.get_name_centrado()
                     personagem.get_descricao()
-                    personagem.set_implante_cibernetico(implante)
+                    personagem.set_cybernetic_implant(implante)
                     personagem.get_implante_cibernetico()
                     personagem.set_info_adicional(info_adicional)
                     personagem.get_info_adicional() 
@@ -475,11 +475,11 @@ def exibir_info_personagem(dataframe,nome_combina,texto1,texto2):
                     return "lista"   
                 elif opcao == "Info sobre Ocupação":
                     os.system('cls')
-                    personagem.get_nome_centrado()
+                    personagem.get_name_centrado()
                     personagem.get_descricao()
-                    print(get_descricao_classe(ocupacao))
+                    print(get_descricao_classe(occupation))
                     escolhas = [
-                    f"Voltar a {nome}",
+                    f"Voltar a {name}",
                     "Escolher outro personagem",
                     "Voltar ao menu principal"
                     ]
@@ -490,15 +490,15 @@ def exibir_info_personagem(dataframe,nome_combina,texto1,texto2):
                         return "menu"
                     elif opcao == "Escolher outro personagem":
                         return "lista" 
-                    elif opcao == f"Voltar a {nome}":
+                    elif opcao == f"Voltar a {name}":
                         continue 
                 elif opcao == "Info sobre Implante":
                     os.system('cls')
-                    personagem.get_nome_centrado()
+                    personagem.get_name_centrado()
                     personagem.get_descricao()
                     print(get_descricao_implante(implante))
                     escolhas = [
-                    f"Voltar a {nome}",
+                    f"Voltar a {name}",
                     "Escolher outro personagem",
                     "Voltar ao menu principal"
                     ]
@@ -509,15 +509,15 @@ def exibir_info_personagem(dataframe,nome_combina,texto1,texto2):
                         return "menu"
                     elif opcao == "Escolher outro personagem":
                         return "lista" 
-                    elif opcao == f"Voltar a {nome}":
+                    elif opcao == f"Voltar a {name}":
                         continue 
                 elif opcao == "Info sobre Habilidade Especial":
                     os.system('cls')
-                    personagem.get_nome_centrado()
+                    personagem.get_name_centrado()
                     personagem.get_descricao()
-                    print(get_descricao_habilidade_classe(ocupacao))
+                    print(get_descricao_habilidade_classe(occupation))
                     escolhas = [
-                    f"Voltar a {nome}",
+                    f"Voltar a {name}",
                     "Escolher outro personagem",
                     "Voltar ao menu principal"
                     ]
@@ -528,15 +528,15 @@ def exibir_info_personagem(dataframe,nome_combina,texto1,texto2):
                         return "menu"
                     elif opcao == "Escolher outro personagem":
                         return "lista" 
-                    elif opcao == f"Voltar a {nome}":
+                    elif opcao == f"Voltar a {name}":
                         continue 
-                elif opcao == "Info sobre Gangue":
+                elif opcao == "Info sobre gang":
                     os.system('cls')
-                    personagem.get_nome_centrado()
+                    personagem.get_name_centrado()
                     personagem.get_descricao()
                     print(get_descricao_gangue(gangue_pack))
                     escolhas = [
-                    f"Voltar a {nome}",
+                    f"Voltar a {name}",
                     "Escolher outro personagem",
                     "Voltar ao menu principal"
                     ]
@@ -547,15 +547,15 @@ def exibir_info_personagem(dataframe,nome_combina,texto1,texto2):
                         return "menu"
                     elif opcao == "Escolher outro personagem":
                         return "lista" 
-                    elif opcao == f"Voltar a {nome}":
+                    elif opcao == f"Voltar a {name}":
                         continue 
                 elif opcao == "Info sobre Pack":
                     os.system('cls')
-                    personagem.get_nome_centrado()
+                    personagem.get_name_centrado()
                     personagem.get_descricao()
                     print(get_descricao_pack(gangue_pack))
                     escolhas = [
-                    f"Voltar a {nome}",
+                    f"Voltar a {name}",
                     "Escolher outro personagem",
                     "Voltar ao menu principal"
                     ]
@@ -566,7 +566,7 @@ def exibir_info_personagem(dataframe,nome_combina,texto1,texto2):
                         return "menu"
                     elif opcao == "Escolher outro personagem":
                         return "lista" 
-                    elif opcao == f"Voltar a {nome}":
+                    elif opcao == f"Voltar a {name}":
                         continue 
                 
         elif opcao == "Escolher outro personagem":
@@ -579,47 +579,47 @@ def eliminar_personagem():
     while True:
         os.system('cls')
         FICHEIRO_CSV = 'CyberChar.csv'
-        texto1 = "ELIMINAR PERSONAGEM"
-        texto2 = "digita 'cancelar' ou pressiona 'Enter' com nome em branco para voltar ao menu principal\n"        
+        text1 = "ELIMINAR PERSONAGEM"
+        text2 = "digita 'cancelar' ou pressiona 'Enter' com name em branco para voltar ao menu principal\n"        
         # Exibir uma lista dos personagens
         dataframe = carregar_dataframe(FICHEIRO_CSV)
-        exibir_dataframe_limitada(dataframe,texto1,texto2)
-        # Pedir ao utilizador para digitar o nome do personagem a ser eliminado 
+        exibir_dataframe_limitada(dataframe,text1,text2)
+        # Pedir ao utilizador para digitar o name do personagem a ser eliminado 
         if opcao == "invalida":                                        
-            print(Fore.RED+Style.BRIGHT+centrar_texto("Personagem não encontrado")+Style.RESET_ALL)
+            print(Fore.RED+Style.BRIGHT+center_text("Personagem não encontrado")+Style.RESET_ALL)
         if opcao == "Não permitido":                                        
-            print(Fore.RED+Style.BRIGHT+centrar_texto(f"Não é possível eliminar '{nome_personagem}'.")+Style.RESET_ALL)
+            print(Fore.RED+Style.BRIGHT+center_text(f"Não é possível eliminar '{name_personagem}'.")+Style.RESET_ALL)
         try:   
-            nome_personagem = input("Digita o nome do personagem que desejas eliminar: ").strip()
+            name_personagem = input("Digita o name do personagem que desejas eliminar: ").strip()
         except ValueError:
             pass 
         # Voltar ao menu principal
-        if nome_personagem.strip().lower() == "cancelar" or nome_personagem.strip().lower() == "":
+        if name_personagem.strip().lower() == "cancelar" or name_personagem.strip().lower() == "":
             print("Operação Cancelada. Voltando ao menu principal.")
             stop()
             return
         # Se existe prosseguir
-        elif nome_personagem in dataframe['                Nome'].values:            
+        elif name_personagem in dataframe['                name'].values:            
             # Confirmar a eliminação
             while True: 
-                # Verificar se o nome digitado faz parte dos personagens predefinidos
-                if nome_personagem in personagens_predefinidos:
+                # Verificar se o name digitado faz parte dos personagens predefinidos
+                if name_personagem in personagens_predefinidos:
                     opcao = "Não permitido"
                     break
                 os.system('cls')
-                exibir_dataframe_limitada(dataframe,texto1,texto2)
+                exibir_dataframe_limitada(dataframe,text1,text2)
                 # Lista que contém opções do menu
                 escolhas = [            
                     "Sim",
                     "Não"
                 ]
                 # Exibir o menu utilizando a função menu_escolhas()
-                opcao = menu_escolhas(escolhas,(f"Tens a certeza que pretendes eliminar '{nome_personagem}'?"))
+                opcao = menu_escolhas(escolhas,(f"Tens a certeza que pretendes eliminar '{name_personagem}'?"))
                 if opcao == 'Sim':
                     # Eliminar o personagem do DataFrame e reescrever o arquivo CSV
-                    df_novos_dados = dataframe[dataframe['                Nome'] != nome_personagem]
+                    df_novos_dados = dataframe[dataframe['                name'] != name_personagem]
                     df_novos_dados.to_csv(FICHEIRO_CSV, encoding='utf-8', index=False)
-                    print(f"Personagem '{nome_personagem}' eliminado com sucesso!")
+                    print(f"Personagem '{name_personagem}' eliminado com sucesso!")
                     input("\nPressiona Enter para continuar.")
                     break
                 elif opcao == 'Não':
@@ -634,7 +634,7 @@ def main():
     tocar_musica('music1.mp3')   
     while(True):
         os.system('cls') 
-        titulo_animado()  
+        animated_title()  
         # Lista que contém opções do menu
         escolhas = [            
             "Criar Personagem",

@@ -1,30 +1,30 @@
-import os # Utilizado para limpar a consola(ecra)
-import time # Utilizado na função titulo_animado (e stop() do main)
-from colorama import Fore, Style # Modifica cor e estilo do texto.
+import os # Used to clear the console (screen)
+import time # Used in the animated title function (and in the stop() function of the main)
+from colorama import Fore, Style # Modifies the color and style of the text
 
-# Função para obter o tamanho do terminal
-def obter_tamanho_terminal():
+# Function to get the terminal size
+def obtain_terminal_size():
     try:
-        colunas, linhas = os.get_terminal_size(0) # Obtem o tamanho do terminal, uma tupla de dois valores, altura e largura
+        columns, rows = os.get_terminal_size(0) # Gets the terminal size, a tuple of two values, height and width
     except OSError:
-        colunas, linhas = os.get_terminal_size(1) # Se existir algum erro, o tamanho reverte ao original
-    return colunas
+        columns, rows = os.get_terminal_size(1) # If there is any error, the size reverts to the original.
+    return columns
 
-# Função para centrar o texto
-def centrar_texto(texto):
-    colunas = obter_tamanho_terminal() # Obtem a largura do terminal
-    lista_strings = texto.split('\n') # Caso o texto tenha \n dividimos o mesmo para formar uma lista de strings
-    linhas_centradas = [] # Lista para acumular as linhas centralizadas
-    for string in lista_strings: # for aplica o método .center() a cada uma das strings na lista
-        linha_centrada = string.strip().center(colunas) # Remove espaços em branco antes e depois da string e Método .center(colunas) centraliza a string dentro do espaço indicado (colunas), adicionando espaços à direita e esquerda
-        linhas_centradas.append(linha_centrada) # Adiciona a linha centralizada à lista
-    texto_centralizado = '\n'.join(linhas_centradas) # .join() volta a juntar as strings utilizando o \n como separador    
-    return texto_centralizado
+# Function to center the text
+def center_text(text):
+    columns = obtain_terminal_size() # Gets the width of the terminal
+    string_list = text.split('\n') # If the text contains "\n", we split it to form a list of strings
+    centered_rows = [] # List to accumulate the centered rows
+    for string in string_list: # for loop applies the .center() method to each of the strings in the list
+        centered_line = string.strip().center(columns) # Removes whitespace before and after the string, and the .center(columns) method centers the string within the specified space (columns), adding spaces to the right and left.
+        centered_rows.append(centered_line) # Adds the centered line to the list
+    centered_text = '\n'.join(centered_rows) # .join() rejoins the strings using "\n" as the separator   
+    return centered_text
 
-# Titulo animado do menu principal
-def titulo_animado():
-        os.system('cls')
-        cyberpunk_art1 = '''
+# Animated title for the main menu
+def animated_title():
+        os.system('cls')        
+        cyberpunk_art1 = """
 |         _-_-_-_     _-_-_-  _-_-_- _-_-_  _-_-_  -    _ _   - _  __|
 / ____\ \   / /  _ \|  ____|   __ \|  __ \| |  | | \ | | |/ /
         | |    \ \_/ /| |_) | |__  | |_) | |__) | |  ||  \| | '/ 
@@ -33,11 +33,11 @@ def titulo_animado():
 \_-_-_|  |_| |_-__/|_ -_-_-|_|  \_\_|    \_-_-/|-| \_|_|\_\ 
                                                                 
                              ̅ ̅    N  D                           
-'''
-        print(Fore.GREEN+centrar_texto(cyberpunk_art1))
+"""
+        print(Fore.GREEN+center_text(cyberpunk_art1))
         time.sleep(0.1) 
         os.system('cls')
-        cyberpunk_art2 = '''
+        cyberpunk_art2 = """
 |       _-_-_-_     _-_-_-  _-_-_- _-_-_  _-_-_  -    _ _   - _  __  |
 |/ ____\ \   / /  _ \|  ____|  __ \|  __ \| |  | | \ | | |/ /        |
        | |    \ \_/ /| |_) | |__  | |__) | |__) | |  | |  \| | ' / 
@@ -46,11 +46,11 @@ def titulo_animado():
 \_-_-_|  |_|  |_-__/|_-_-_-|_|  \_\_|     \_-_-/|-| \_|_|\_\ 
                                                                 
                            E̅C̅   M̅ E̅ ̅A ̅LE̅   D̅                           
-'''
-        print(Fore.GREEN+centrar_texto(cyberpunk_art2))
+"""
+        print(Fore.GREEN+center_text(cyberpunk_art2))
         time.sleep(0.1)        
         os.system('cls')
-        cyberpunk_art3 = '''
+        cyberpunk_art3 = """
 |      _-___-_     ___-__  ____-_ __-_-  __-__  _    _ _   _ _  __   |
 |/ ____\ \   / /  _ \|  ____|  __ \|  __ \| |  | | \ | | |/ /        |
 |     | |    \ \_/ /| |_) | |__  | |__) | |__) | |  | |  \| | ' /    |
@@ -59,11 +59,11 @@ def titulo_animado():
  \_-___|  |_|  |__-_/|-_-_-_|_|  \_\_|     \-_-_/|_| \_|_|\_\ 
                                                                 
                            B̅E̅  O̅ M ̅A̅ ̅L E̅G̅  D̅                           
-'''
-        print(Fore.GREEN+centrar_texto(cyberpunk_art3))
+"""
+        print(Fore.GREEN+center_text(cyberpunk_art3))
         time.sleep(0.1)
         os.system('cls')
-        cyberpunk_art4 = '''
+        cyberpunk_art4 = """
 |     _______     ______  ______ _____  _____  _    _ _   _ _  __    |
 |  / ____\ \   / /  _ \|  ____|  __ \|  __ \| |  | | \ | | |/ /      |
 |     | |    \ \_/ /| |_) | |__  | |__) | |__) | |  | |  \| | ' /    |
@@ -72,11 +72,11 @@ def titulo_animado():
   \_____|  |_|  |____/|______|_|  \_\_|     \____/|_| \_|_|\_\ 
 
                            B̅E O̅ E̅ ̅A̅ ̅LE̅ EN̅                           
-'''
-        print(Fore.GREEN+centrar_texto(cyberpunk_art4))
+"""
+        print(Fore.GREEN+center_text(cyberpunk_art4))
         time.sleep(0.1)
         os.system('cls')
-        cyberpunk_art5 = '''
+        cyberpunk_art5 = """
 |     _______     ______  ______ _____  _____  _    _ _   _ _  __    |
 |    / ____\ \   / /  _ \|  ____|  __ \|  __ \| |  | | \ | | |/ /    |
 |    | |    \ \_/ /| |_) | |__  | |__) | |__) | |  | |  \| | ' /     |
@@ -85,75 +85,95 @@ def titulo_animado():
 |    \_____|  |_|  |____/|______|_|  \_\_|     \____/|_| \_|_|\_\    |
 |                                                                    |
                            B̅E̅C̅O̅M̅E̅ ̅A̅ ̅L̅E̅G̅E̅N̅D̅                           
-'''
-        print(Fore.GREEN+Style.BRIGHT+centrar_texto(cyberpunk_art5)+Style.RESET_ALL)
+"""
+        print(Fore.GREEN+Style.BRIGHT+center_text(cyberpunk_art5)+Style.RESET_ALL)
         time.sleep(0.5)
 
-# Titulo animado exibido após criação de personagem
-def texto_personagem_criado_animado():
+# Animated title displayed after character creation
+def animated_character_created_text():
         os.system('cls')
-        cyberpunk_art ='''
-  _                     _              _                                           _                _    
-                     \       /              /          |             |    /   __  __            /      \        
-        |     |           _                     _  _       |                 |                 |   |     
-      _               \                       \      |                            /                           |
-           _     |    _       _   |                          |          |  _     |           /    _                
-  _                                    _      _       |               \               _                               
-'''
-        print(Fore.GREEN+centrar_texto(cyberpunk_art))
+        cyberpunk_art ="""
+  ___    _    __           _    _           ____ ____  
+     | | |  /  |  _ \    / \      _|      _ \
+  |                      |     | | |  _| | | ) |
+|            /              /     \    _    |   | _     _ < 
+ \      |_   ___         _/         __ _   _ _      |  _
+      |              _         _   _| ____|  _ \         
+       |   |  _)    _    \   | |  _|     |        
+                  _  | |    / __                |        
+         \     |    _       /     \_|        /         
+"""
+        print(Fore.GREEN+center_text(cyberpunk_art))
         time.sleep(0.1) 
         os.system('cls')
-        cyberpunk_art1 ='''
-  _                     _      _     _   _          __    _          __          _ _   _  _   _          __      ____  
-     _               \ /      / __    \      /    /     |             |    /   __|  __       _|   /\   |  __ \        
-        | |    |           _ |      |        /  \ | |   _| |_   | \  / |                 |  |               |   |     
- |  _ _    _           \          |           /  \       |  __    |\ |            |  _  /               |           | |
-   |       _     |   \ _   ) | |_   |                      |_   |      |   |  _     |           /    _                |
-  _          _         _ _ _/ \_     _| \_/_/     _\ _  _|_   __  |  | |    \_           \               ___     _                          
-'''
-        print(Fore.GREEN+centrar_texto(cyberpunk_art1))
+        cyberpunk_art1 ="""
+
+  ___    _    ____      _    ____ __       ____ ____  
+     | | |  / \  |  _ \    / \ _|_   _|      _ \ 
+| |        | / _ \ ||  / _    |     | | |  _| | |_) |
+|   __|     /              / ___ \    _    |   |___|  _ < 
+ \_     |_   ___         _/         __|_   _|_     _| \_
+      |  _           ____|  / \|_   _| ____|  _ \         
+        |   |   | |_)    _|   \   | |  _| | | |        
+                  _ <| |    / __          | |        
+         \     |    _       /     \_\_|     ___/  
+
+"""
+        print(Fore.GREEN+center_text(cyberpunk_art1))
         time.sleep(0.1) 
         os.system('cls')
-        cyberpunk_art2 ='''
-  _   _  _   __ _       _      _     _   _          __    _      __  __      ___ _ _   _  _   _          __      ____  
- |   _ \|            \ / _ __|/ __ \| \      /\   / ____|         \   |    /   __|  __ \|_   _|   /\   |  __ \        
-   | _) | |    |    ) |    _ | |    |        /  \ | |   _| |_   | \  / |            |__) | | |    /  \       | | |     
- |  _ _    _           \          |           /  \       |  __|   |\ |            |  _  /               |           | |
-   |       _   | |   \ _   ) | |_   |                      |_   |      |   |  _     |     _| |_ /    _ \| |    |      |
-  _     |_   _         _ _ _/ \_     _| \_/_/     _\__  _|_   __|_|  | |    \_     _|  \_\__   /_/    \_\___    \_                          
-'''
-        print(Fore.GREEN+centrar_texto(cyberpunk_art2))
+        cyberpunk_art2 ="""
+  ____ _   _    _    ____      _    ____ _____ _____ ____  
+     | | |  / \  |  _ \    / \  / ___|_   _| __|  _ \ |
+| |   | |   | / _ \ | |_)|  / _ \| |     | | |  _| | |_) |
+|   __|     / ___          / ___ \ |___    |   |___|  _ < 
+ \_     |_   ___\_\_     _/   \__  __|_   _|_____|_| \_
+         / _  |  _           ____|  / \|_   _| ____|  _ \         
+        |   |   | |_)    _|   _ \   | |  _| | | |        
+                  _ <| |___ / __     | | |___| |_| |        
+         \ ____|    _       /     \_\_|     ___/         |
+"""
+        print(Fore.GREEN+center_text(cyberpunk_art2))
         time.sleep(0.1)        
         os.system('cls')
-        cyberpunk_art3 ='''
-  _   _  _   __ _       _      _     _   _          __    _      __  __      ___ _ _   _  _   _          __      ____  
- |   _ \|     _|  __ \ / _ __|/ __ \| \      /\   / ____|         \   |    /   __|  __ \|_   _|   /\   |  __ \        
-   | _) | |    |    ) |    _ | |    |        /  \ | |   _| |_   | \  / |            |__) | | |    /  \       | | |     
- |  _ _    _   |  _    \          |   . ` | / /  \| | |_ |  __|   |\ | |   | |    |  _  /  | |      \ \ |      |    | |
-   |    | |_   | |   \ _   ) | |_   |             \ |__|   |_   |      |   |  _     | \ \ _| |_ /    _ \| |    |      |
-  _     |_   _      \_\_ _ _/ \_  _/|_| \_/_/     _\__  _|_   __|_|  |_|    \_  __|_|  \_\__   /_/    \_\___    \_                          
-'''
-        print(Fore.GREEN+centrar_texto(cyberpunk_art3))
+        cyberpunk_art3 ="""
+  ____ _   _    _    ____      _    ____ _____ _____ ____  
+ / _  | | |  / \  |  _ \    / \  / ___|_   _| __|  _ \ 
+| |   | |   | / _ \ | |_)|  / _ \| |     | | |  _| | |_) |
+| |___|     / ___ \|  _    / ___ \ |___  | | |   |___|  _ < 
+ \_     |_   ___\_\_|_\_\/_/   \__  __|_   _|_____|_| \_
+         / _  |  _            ____|  / \|_   _| ____|  _ \         
+        |   |   | |_)    _|   _ \   | |  _| | | |        
+           |__    _ <| |___ / __  \| | | |___| |_| |        
+         \ ____| \_\_       /     \_\_| |_  _|____/         
+"""
+        print(Fore.GREEN+center_text(cyberpunk_art3))
         time.sleep(0.1)
         os.system('cls')
-        cyberpunk_art4 ='''
-  _   _  _   __ _       _      ____  _   _          __    _      __  __      ___ _ _   _  _   _          __      ____  
- |  __ \|  ____|  __ \ / _ __|/ __ \| \ | |   /\   / ____|         \   |    /   __|  __ \|_   _|   /\   |  __ \ / __ \ 
- | | _) | |__  | | _) | (___ | |  | |  \| |  /  \ | |   _| |_   | \  / |            |__) | | |    /  \  | |  | | |  | |
- |  _ _/|  _   |  _    \  _ \|    |   . ` | / /  \| | |_ |  __|   |\ | |   | |    |  _  /  | |   / /\ \ |      |    | |
- | |    | |_   | |   \ ____) | |__| | |\          \ |__|   |____|    | |   |  ____| | \ \ _| |_ / ____ \| |__| | |__| |
- |_|    |_   _      \_\_ _ _/ \_  _/|_| \_/_/     _\__  _|_   __|_|  |_|    \_  __|_|  \_\__   /_/    \_\___    \_                          
-'''
-        print(Fore.GREEN+centrar_texto(cyberpunk_art4))
+        cyberpunk_art4 ="""
+  ____ _   _    _    ____      _    ____ _____ _____ ____  
+ / __ | | |  / \  |  _ \    / \  / ___|_   _| __|  _ \ 
+| |   | |_| | / _ \ | |_)|  / _ \| |     | | |  _| | |_) |
+| |___|  _ |/ ___ \|  _    / ___ \ |___  | | |   |___|  _ < 
+ \____  _| |_/_/___\_\_|_\_\/_/_  \__  __|_|_|_|_____|_| \_
+         / _  |  _   \| ____|  / \|_   _| ____|  _ \         
+        |   |   | |_)    _|   _ \   | |  _| | | |        
+           |__    _ <| |___ / __  \| | | |___| |_| |        
+         \ ____| \_\_____/     \_\_| |_____|____/         
+"""
+        print(Fore.GREEN+center_text(cyberpunk_art4))
         time.sleep(0.1)
         os.system('cls')
-        cyberpunk_art5 ='''
-  _____  ______ _____   _____  ____  _   _          _____ ______ __  __      _____ _____  _____          _____   ____  
- |  __ \|  ____|  __ \ / ____|/ __ \| \ | |   /\   / ____|  ____|  \/  |    / ____|  __ \|_   _|   /\   |  __ \ / __ \ 
- | |__) | |__  | |__) | (___ | |  | |  \| |  /  \ | |  __| |__  | \  / |   | |    | |__) | | |    /  \  | |  | | |  | |
- |  ___/|  __| |  _  / \___ \| |  | | . ` | / /\ \| | |_ |  __| | |\/| |   | |    |  _  /  | |   / /\ \ | |  | | |  | |
- | |    | |____| | \ \ ____) | |__| | |\  |/ ____ \ |__| | |____| |  | |   | |____| | \ \ _| |_ / ____ \| |__| | |__| |
- |_|    |______|_|  \_\_____/ \____/|_| \_/_/    \_\_____|______|_|  |_|    \_____|_|  \_\_____/_/    \_\_____/ \____/                      
-'''
-        print(Fore.GREEN+Style.BRIGHT+centrar_texto(cyberpunk_art5)+Style.RESET_ALL)
+        cyberpunk_art5 ="""
+  ____ _   _    _    ____      _    ____ _____ _____ ____  
+ / ___| | | |  / \  |  _ \    / \  / ___|_   _| ____|  _ \ 
+| |   | |_| | / _ \ | |_) |  / _ \| |     | | |  _| | |_) |
+| |___|  _  |/ ___ \|  _ <  / ___ \ |___  | | | |___|  _ < 
+ \____|_| |_/_/___\_\_|_\_|/_/_  \_\____|_|_|_|_____|_| \_\
+         / ___|  _ \| ____|  / \|_   _| ____|  _ \         
+        | |   | |_) |  _|   / _ \ | | |  _| | | | |        
+        | |___|  _ <| |___ / ___ \| | | |___| |_| |        
+         \____|_| \_\_____/_/   \_\_| |_____|____/         
+"""
+        print(Fore.GREEN+Style.BRIGHT+center_text(cyberpunk_art5)+Style.RESET_ALL)
         time.sleep(0.5)
