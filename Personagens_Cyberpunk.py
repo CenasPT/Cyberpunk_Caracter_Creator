@@ -21,7 +21,7 @@ desde que sejam utilizadas para alcançar os seus objetivos.
 Eventualmente, Silverhand foi morto por Adam Smasher durante o Holocausto de Night City em 20 de agosto de 2023.
 No entanto, a sua consciência foi copiada e armazenada num dispositivo (Relic) após o seu encontro com Smasher, pouco antes da sua morte.
 Esta cópia não é a sua consciência real, mas sim uma réplica digital da sua personalidade."""
-Johnny.set_info_adicional(info)
+Johnny.set_additional_info(info)
 # Personagem Predefinido 2
 Morgan=Solo("Morgan Blackhand",10,20)
 Morgan.set_cybernetic_implant("Braço cibernético Cromado")
@@ -34,7 +34,7 @@ Basicamente, Blackhand é considerado o "Solo dos Solos", com anos de experiênc
 Morgan trabalha para a oferta mais alta,
 não tem agenda própria e não aspira a ser mais do que aquilo que já é.
 Simplesmente aceita os trabalhos que lhe são atribuídos e executa-os da forma que considera mais adequada."""
-Morgan.set_info_adicional(info)
+Morgan.set_additional_info(info)
 # Personagem Predefinido 3
 Alt=Netrunner("Alt Cunningham",10,20)
 Alt.set_cybernetic_implant("Ligações de Interface")
@@ -47,7 +47,7 @@ No entanto, a sua vida mudou completamente quando foi raptada pela Corporação 
 que a usou para criar uma outra versão do programa Soulkiller para a própria empresa.
 Programa esse que mais tarde veio a tornar Alt na sua primeira vítima.
 Atualmente, a sua consciência existe apenas como um fantasma digital na Net."""
-Alt.set_info_adicional(info)
+Alt.set_additional_info(info)
 # Personagem Predefinido 4
 Saburo=Corpo("Saburo Arasaka",10,20)
 Saburo.set_cybernetic_implant("?")
@@ -66,7 +66,7 @@ Chegou até a criar uma cópia digital da sua personalidade, na Sede da Arasaka 
 Aos 158 anos, ele ainda reina no topo da Arasaka em 2077,
 tendo erguido a empresa como um grande império da sua geração.
 É orgulhoso, honrado e implacável."""
-Saburo.set_info_adicional(info)
+Saburo.set_additional_info(info)
 # Personagem Predefinido 5
 Smasher=Solo("Adam Smasher",10,20)
 Smasher.set_cybernetic_implant("Samson frame")
@@ -79,14 +79,14 @@ Adam optou pela segunda opção, mostrando pouco interesse em preservar seu lado
 Sem empatia por outros, incluindo seus colegas de trabalho,
 Adam é mantido vivo pela Arasaka para eliminar os inimigos da corporação,
 podendo apenas ser descrito de uma forma, maldade pura e descontrolada."""
-Smasher.set_info_adicional(info)
+Smasher.set_additional_info(info)
 # Personagem Predefinido 6
 Rogue=Fixer("Rogue Amendiares",10,20)
 Rogue.set_cybernetic_implant("Visão Cibernética")
 info ="""Rogue Amendiares foi bastante famosa durante a década de 2010 em Night City.
 Mais tarde tornou-se proprietária do famoso clube noturno Afterlife.
 Foi amplamente considerada a melhor fixer da cidade até 2077."""
-Rogue.set_info_adicional(info)
+Rogue.set_additional_info(info)
 # Personagem Predefinido 7
 Bartmoss=Netrunner("Rache Bartmoss",10,20)
 Bartmoss.set_cybernetic_implant("?")
@@ -94,4 +94,4 @@ info ="""Rache Bartmoss foi um lendário Netrunner no início do século XXI.
 Ficou famoso como o homem que causou a DataKrash e destruiu a Net.
 Ele inventou os programas Demon e Hound.
 Juntamente com Spider Murphy, escreveu os livros "Guia para a Net de Rache Bartmoss" e "Explosão de Hardware Cerebral"."""
-Bartmoss.set_info_adicional(info)
+Bartmoss.set_additional_info(info)

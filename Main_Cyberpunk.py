@@ -52,13 +52,13 @@ def carregar_dataframe(ficheiro):
         # Criar novo DataFrame caso ficheiro não exista         
         dataframe=pd.DataFrame(columns=cabecalho)
         dataframe.to_csv(ficheiro, encoding='utf-8',index=False)
-        inserir_dados_ficheiro(Johnny.name,Johnny.initial_level,Johnny.max_level,Johnny.occupation,Johnny.gang,Johnny.implante_cibernetico,Johnny.info_adicional) 
-        inserir_dados_ficheiro(Morgan.name,Morgan.initial_level,Morgan.max_level,Morgan.occupation,Morgan.gang,Morgan.implante_cibernetico,Morgan.info_adicional)
-        inserir_dados_ficheiro(Alt.name,Alt.initial_level,Alt.max_level,Alt.occupation,Alt.gang,Alt.implante_cibernetico,Alt.info_adicional) 
-        inserir_dados_ficheiro(Saburo.name,Saburo.initial_level,Saburo.max_level,Saburo.occupation,Saburo.gang,Saburo.implante_cibernetico,Saburo.info_adicional) 
-        inserir_dados_ficheiro(Smasher.name,Smasher.initial_level,Smasher.max_level,Smasher.occupation,Smasher.gang,Smasher.implante_cibernetico,Smasher.info_adicional) 
-        inserir_dados_ficheiro(Rogue.name,Rogue.initial_level,Rogue.max_level,Rogue.occupation,Rogue.gang,Rogue.implante_cibernetico,Rogue.info_adicional) 
-        inserir_dados_ficheiro(Bartmoss.name,Bartmoss.initial_level,Bartmoss.max_level,Bartmoss.occupation,Bartmoss.gang,Bartmoss.implante_cibernetico,Bartmoss.info_adicional) 
+        inserir_dados_ficheiro(Johnny.name,Johnny.initial_level,Johnny.max_level,Johnny.occupation,Johnny.gang,Johnny.cybernetic_implant,Johnny.additional_info) 
+        inserir_dados_ficheiro(Morgan.name,Morgan.initial_level,Morgan.max_level,Morgan.occupation,Morgan.gang,Morgan.cybernetic_implant,Morgan.additional_info)
+        inserir_dados_ficheiro(Alt.name,Alt.initial_level,Alt.max_level,Alt.occupation,Alt.gang,Alt.cybernetic_implant,Alt.additional_info) 
+        inserir_dados_ficheiro(Saburo.name,Saburo.initial_level,Saburo.max_level,Saburo.occupation,Saburo.gang,Saburo.cybernetic_implant,Saburo.additional_info) 
+        inserir_dados_ficheiro(Smasher.name,Smasher.initial_level,Smasher.max_level,Smasher.occupation,Smasher.gang,Smasher.cybernetic_implant,Smasher.additional_info) 
+        inserir_dados_ficheiro(Rogue.name,Rogue.initial_level,Rogue.max_level,Rogue.occupation,Rogue.gang,Rogue.cybernetic_implant,Rogue.additional_info) 
+        inserir_dados_ficheiro(Bartmoss.name,Bartmoss.initial_level,Bartmoss.max_level,Bartmoss.occupation,Bartmoss.gang,Bartmoss.cybernetic_implant,Bartmoss.additional_info) 
         dataframe=pd.read_csv(ficheiro,encoding='utf-8') 
     return dataframe
 
@@ -71,11 +71,11 @@ def exibir_dataframe_limitada(dataframe,text1,text2):
     print(Fore.GREEN+Style.BRIGHT+dataframe_limitada.to_string(index=False)+Style.RESET_ALL+"\n")
 
 # Insere dados no ficheiro CSV (variavel constante)
-def inserir_dados_ficheiro(name,nivelinicial,nivelmax,occupation,gangue_pack,implante,info_adicional):
+def inserir_dados_ficheiro(name,nivelinicial,nivelmax,occupation,gangue_pack,implante,additional_info):
     FICHEIRO_CSV = 'CyberChar.csv'
     dataframe = carregar_dataframe(FICHEIRO_CSV)           
     # Introdução de novos dados no DataFrame               
-    nova_linha = {'                name':name,'|  Nível Inicial':nivelinicial,'|   Nível Máximo':nivelmax,'|       Ocupação':occupation,'|    gang/Pack':gangue_pack,'|       Implante Cibernético':implante,'Informação Adicional':info_adicional}
+    nova_linha = {'                name':name,'|  Nível Inicial':nivelinicial,'|   Nível Máximo':nivelmax,'|       Ocupação':occupation,'|    gang/Pack':gangue_pack,'|       Implante Cibernético':implante,'Informação Adicional':additional_info}
     dataframe.loc[len(dataframe)] = nova_linha    
     # Escrever Dados Novos no Ficheiro
     dataframe.to_csv(FICHEIRO_CSV, encoding='utf-8',index=False)
@@ -128,7 +128,7 @@ def criar_personagem():
         "Corpo",
         "Rockerboy",
         "Gangster",
-        "Polícia",
+        "Cop",
         "Solo",
         "Netrunner",
         "Techie",
@@ -194,8 +194,8 @@ def criar_personagem():
             else:                             
                 personagem = Gangster(name,nivelinicial,nivelmax,gang) 
                 break
-        elif occupation == "Polícia":        
-            personagem = Policia(name,nivelinicial,nivelmax)
+        elif occupation == "Cop":        
+            personagem = Cop(name,nivelinicial,nivelmax)
             break
         elif occupation == "Solo":        
             personagem = Solo(name,nivelinicial,nivelmax)
@@ -304,25 +304,25 @@ def criar_personagem():
         if opcao == "invalida":                                                      
             print(Fore.RED+Style.BRIGHT+center_text("Deve conter alguma informação")+Style.RESET_ALL) 
         try:     
-            info_adicional=(input("Digita um pequeno text que contenha informação adicional sobre o personagem:\n").strip())
+            additional_info=(input("Digita um pequeno text que contenha informação adicional sobre o personagem:\n").strip())
         except ValueError:
             pass 
-        if info_adicional.strip().lower() == "cancelar":
+        if additional_info.strip().lower() == "cancelar":
             os.system('cls')
             print(Fore.BLUE+Style.BRIGHT+center_text("\nINFO SOBRE PERSONAGEM")+Style.RESET_ALL)
             print(Fore.BLUE+Style.BRIGHT+center_text("digita 'cancelar' a qualquer momento para voltar ao menu principal\n")+Style.RESET_ALL) 
             print("Operação Cancelada. Voltando ao menu principal.")
             stop()
             return
-        elif info_adicional != "": 
-                personagem.set_info_adicional(info_adicional)               
+        elif additional_info != "": 
+                personagem.set_additional_info(additional_info)               
                 break                   
         else:
             opcao = "invalida"
     if isinstance(personagem,Nomad):
-        inserir_dados_ficheiro(personagem.name,personagem.initial_level,personagem.max_level,personagem.occupation,personagem.pack,personagem.implante_cibernetico,personagem.info_adicional)
+        inserir_dados_ficheiro(personagem.name,personagem.initial_level,personagem.max_level,personagem.occupation,personagem.pack,personagem.cybernetic_implant,personagem.additional_info)
     else:
-        inserir_dados_ficheiro(personagem.name,personagem.initial_level,personagem.max_level,personagem.occupation,personagem.gang,personagem.implante_cibernetico,personagem.info_adicional) 
+        inserir_dados_ficheiro(personagem.name,personagem.initial_level,personagem.max_level,personagem.occupation,personagem.gang,personagem.cybernetic_implant,personagem.additional_info) 
     animated_character_created_text()  
     # Conteúdo da função stop() escrito diretamente porque neste caso específico, o text fica centrado no terminal
     for i in range(3,0,-1):
@@ -388,7 +388,7 @@ def exibir_info_personagem(dataframe,name_combina,text1,text2):
             occupation = dataframe_personagem['|       Ocupação'].values[0]
             gangue_pack = dataframe_personagem['|    gang/Pack'].values[0]
             implante = dataframe_personagem['|       Implante Cibernético'].values[0]
-            info_adicional = dataframe_personagem['Informação Adicional'].values[0]
+            additional_info = dataframe_personagem['Informação Adicional'].values[0]
             # Instânciar o personagem de uma forma dinâmica com os dados extraidos e apresentar os dados            
             while(True): 
                 os.system('cls')
@@ -397,12 +397,12 @@ def exibir_info_personagem(dataframe,name_combina,text1,text2):
 
                 if occupation == "Gangster":
                     personagem = class_ocupacao(name,initial_level,max_level,gangue_pack)
-                    personagem.get_name_centrado()
-                    personagem.get_descricao()
+                    personagem.get_centered_name()
+                    personagem.get_description()
                     personagem.set_cybernetic_implant(implante)
-                    personagem.get_implante_cibernetico()
-                    personagem.set_info_adicional(info_adicional)
-                    personagem.get_info_adicional()
+                    personagem.get_cybernetic_implant()
+                    personagem.set_additional_info(additional_info)
+                    personagem.get_additional_info()
 
                     escolhas = [ 
                     "Info sobre Ocupação",
@@ -415,12 +415,12 @@ def exibir_info_personagem(dataframe,name_combina,text1,text2):
                     
                 elif occupation == "Nomad":
                     personagem = class_ocupacao(name,initial_level,max_level,gangue_pack)
-                    personagem.get_name_centrado()
-                    personagem.get_descricao()
+                    personagem.get_centered_name()
+                    personagem.get_description()
                     personagem.set_cybernetic_implant(implante)
-                    personagem.get_implante_cibernetico()
-                    personagem.set_info_adicional(info_adicional)
-                    personagem.get_info_adicional()
+                    personagem.get_cybernetic_implant()
+                    personagem.set_additional_info(additional_info)
+                    personagem.get_additional_info()
 
                     escolhas = [ 
                     "Info sobre Ocupação",
@@ -433,12 +433,12 @@ def exibir_info_personagem(dataframe,name_combina,text1,text2):
 
                 elif occupation == "-":
                     personagem = Character(name,initial_level,max_level)
-                    personagem.get_name_centrado()
-                    personagem.get_descricao()
+                    personagem.get_centered_name()
+                    personagem.get_description()
                     personagem.set_cybernetic_implant(implante)
-                    personagem.get_implante_cibernetico()
-                    personagem.set_info_adicional(info_adicional)
-                    personagem.get_info_adicional()
+                    personagem.get_cybernetic_implant()
+                    personagem.set_additional_info(additional_info)
+                    personagem.get_additional_info()
 
                     escolhas = [ 
                     "Info sobre Ocupação",
@@ -450,12 +450,12 @@ def exibir_info_personagem(dataframe,name_combina,text1,text2):
 
                 else:
                     personagem = class_ocupacao(name,initial_level,max_level)
-                    personagem.get_name_centrado()
-                    personagem.get_descricao()
+                    personagem.get_centered_name()
+                    personagem.get_description()
                     personagem.set_cybernetic_implant(implante)
-                    personagem.get_implante_cibernetico()
-                    personagem.set_info_adicional(info_adicional)
-                    personagem.get_info_adicional() 
+                    personagem.get_cybernetic_implant()
+                    personagem.set_additional_info(additional_info)
+                    personagem.get_additional_info() 
 
                     escolhas = [ 
                     "Info sobre Ocupação",
@@ -475,9 +475,9 @@ def exibir_info_personagem(dataframe,name_combina,text1,text2):
                     return "lista"   
                 elif opcao == "Info sobre Ocupação":
                     os.system('cls')
-                    personagem.get_name_centrado()
-                    personagem.get_descricao()
-                    print(get_descricao_classe(occupation))
+                    personagem.get_centered_name()
+                    personagem.get_description()
+                    print(get_class_description(occupation))
                     escolhas = [
                     f"Voltar a {name}",
                     "Escolher outro personagem",
@@ -494,9 +494,9 @@ def exibir_info_personagem(dataframe,name_combina,text1,text2):
                         continue 
                 elif opcao == "Info sobre Implante":
                     os.system('cls')
-                    personagem.get_name_centrado()
-                    personagem.get_descricao()
-                    print(get_descricao_implante(implante))
+                    personagem.get_centered_name()
+                    personagem.get_description()
+                    print(get_implant_description(implante))
                     escolhas = [
                     f"Voltar a {name}",
                     "Escolher outro personagem",
@@ -513,9 +513,9 @@ def exibir_info_personagem(dataframe,name_combina,text1,text2):
                         continue 
                 elif opcao == "Info sobre Habilidade Especial":
                     os.system('cls')
-                    personagem.get_name_centrado()
-                    personagem.get_descricao()
-                    print(get_descricao_habilidade_classe(occupation))
+                    personagem.get_centered_name()
+                    personagem.get_description()
+                    print(get_description_habilidade_classe(occupation))
                     escolhas = [
                     f"Voltar a {name}",
                     "Escolher outro personagem",
@@ -532,9 +532,9 @@ def exibir_info_personagem(dataframe,name_combina,text1,text2):
                         continue 
                 elif opcao == "Info sobre gang":
                     os.system('cls')
-                    personagem.get_name_centrado()
-                    personagem.get_descricao()
-                    print(get_descricao_gangue(gangue_pack))
+                    personagem.get_centered_name()
+                    personagem.get_description()
+                    print(get_description_gangue(gangue_pack))
                     escolhas = [
                     f"Voltar a {name}",
                     "Escolher outro personagem",
@@ -551,9 +551,9 @@ def exibir_info_personagem(dataframe,name_combina,text1,text2):
                         continue 
                 elif opcao == "Info sobre Pack":
                     os.system('cls')
-                    personagem.get_name_centrado()
-                    personagem.get_descricao()
-                    print(get_descricao_pack(gangue_pack))
+                    personagem.get_centered_name()
+                    personagem.get_description()
+                    print(get_description_pack(gangue_pack))
                     escolhas = [
                     f"Voltar a {name}",
                     "Escolher outro personagem",

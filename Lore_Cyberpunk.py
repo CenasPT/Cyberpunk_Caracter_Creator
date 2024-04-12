@@ -1,70 +1,69 @@
-from colorama import Fore, Style # Modifica cor e estilo do text.
-from Animations_Cyberpunk import center_text # centra o text
+from colorama import Fore, Style # Modifies text color and style.
 
-# Função para obter descrição de cada implante
-def get_descricao_implante(name_implante):
-    descricao = descricao_implante.get(name_implante,"Nunhuma informação disponível")
-    return "\n" + Fore.GREEN + Style.BRIGHT + name_implante + Style.RESET_ALL + descricao
+# Function to obtain the description of each implant
+def get_implant_description(implant_name):
+    description = implant_description.get(implant_name,"No information available")
+    return "\n" + Fore.GREEN + Style.BRIGHT + implant_name + Style.RESET_ALL + description
 
-# Função para obter descrição de cada classe
-def get_descricao_classe(name_classe):
-    descricao = descricao_classe.get(name_classe,"Nunhuma informação disponível")
-    return "\n" + Fore.GREEN + Style.BRIGHT + name_classe + Style.RESET_ALL + descricao
+# Function to obtain the description of each class
+def get_class_description(class_name):
+    description = class_description.get(class_name,"No information available")
+    return "\n" + Fore.GREEN + Style.BRIGHT + class_name + Style.RESET_ALL + description
 
 # Função para obter descrição da habilidade específica de cada classe
-def get_descricao_habilidade_classe(name_classe):
-    tuplo = descricao_habilidade_classe.get(name_classe,("-","Nunhuma informação disponível")) # Extrair o tuplo
+def get_description_habilidade_classe(class_name):
+    tuplo = description_habilidade_classe.get(class_name,("-","No information available")) # Extrair o tuplo
     name_habilidade = tuplo[0]  # Extrair o primeiro elemento do tuplo
-    descricao_habilidade = tuplo[1]  # Extrair o segundo elemento do tuplo    
-    return "\n" + Fore.GREEN + Style.BRIGHT + name_habilidade + Style.RESET_ALL + descricao_habilidade
+    description_habilidade = tuplo[1]  # Extrair o segundo elemento do tuplo    
+    return "\n" + Fore.GREEN + Style.BRIGHT + name_habilidade + Style.RESET_ALL + description_habilidade
 
 # Função para obter descrição de cada gang
-def get_descricao_gangue(name_gangue):
-    descricao = descricao_gangue.get(name_gangue,"Nunhuma informação disponível")
-    return "\n" + Fore.GREEN + Style.BRIGHT + name_gangue + Style.RESET_ALL + descricao
+def get_description_gangue(name_gangue):
+    description = description_gangue.get(name_gangue,"No information available")
+    return "\n" + Fore.GREEN + Style.BRIGHT + name_gangue + Style.RESET_ALL + description
 
 # Função para obter descrição de cada pack (nomad)
-def get_descricao_pack(name_pack):
-    descricao = descricao_pack.get(name_pack,"Nunhuma informação disponível")
-    return "\n" + Fore.GREEN + Style.BRIGHT + name_pack + Style.RESET_ALL + descricao
+def get_description_pack(name_pack):
+    description = description_pack.get(name_pack,"No information available")
+    return "\n" + Fore.GREEN + Style.BRIGHT + name_pack + Style.RESET_ALL + description
 
 # Função para obter Lore de Cyberpunk / texts singulares
 def get_lore_cyberpunk(name_lore):
     return lore_cyberpunk.get(name_lore)
 
 # Descrição de cada IMPLANTE CIBERNÉTICO
-descricao_implante = {
+implant_description = {
 "Sandevistan":"""
-O Sandevistan é um implante cibernético que permite ao seu utilizador abrandar o tempo,
-isto segundo a sua própria percepção.
-Quem vê de fora, apenas assiste a um humano extremamente rápido no que diz respeito aos seus reflexos.
-Este implante possui um tempo limite de duração de apenas alguns segundos,
-podendo ser recarregado posteriormente.
-Algumas modificações possibilitam ao utilizador optimizar o Sandevistan,
-aumentando a sua duração,
-reduzindo o tempo de recarga 
-entre outros benefícios úteis.
+Sandevistan is a cybernetic implant that allows its user to slow down time,
+according to their own perception.
+To an outside observer, it appears as if the user is simply moving at an extremely fast speed.
+This implant has a limited duration of only a few seconds,
+but it can be recharged afterwards.
+Some modifications allow the user to optimize the Sandevistan, increasing its duration,
+reducing its recharge time
+and providing other useful benefits.
 """,
 "Monowire":"""
-O Monowire destaca-se como uma das peças cibernéticas mais poderosas e chamativas
-que podem ser encontradas no universo Cyberpunk.
-Esta arma consiste num fio fino semelhante a um chicote,
-com uma espessura de apenas uma molécula.
+The Monowire stands out as one of the most powerful and flashy pieces of cyberware
+that can be found in the Cyberpunk universe.
+This weapon consists of a thin, whip-like wire
+that is only one molecule thick.
 """,
 "Gorilla Arms":"""
-É essencial que os teus socos sejam poderosos o suficiente para derrotar rapidamente os teus inimigos.
-Para alcançar isso, sugerimos a aquisição dos Gorilla Arms.
-Esta melhoria amplifica consideravelmente os estragos causados pelos teus punhos,
-permitindo provocar um sofrimento significativo nos teus adversários.
+It is essential that your punches are powerful enough to quickly defeat your enemies.
+To achieve this, we suggest acquiring the Gorilla Arms.
+This upgrade considerably amplifies the damage caused by your fists,
+allowing you to inflict significant suffering on your opponents.
 """,
-"Braço cibernético Cromado":"""
-Um braço cibernético utiliza fibras musculares sintéticas em vez de carne e sangue.
-Não se cansam nem sentem dor, sendo também muito mais resistentes e poderosos do que o tecido muscular normal.
-Possui um poder de aperto tremendo,
-podem facilmente esmagar metais leves, madeiras e plásticos.
-Conseguem reduzir vidro e plástico a pó (embora não tenham a capacidade de transformar carvão em diamantes!).
+"Chrome Cybernetic Arm":"""
+A cybernetic arm uses synthetic muscle fibers instead of flesh and blood.
+They do not tire or feel pain, and are also much stronger and more powerful than normal muscle tissue.
+They have tremendous gripping power,
+and can easily crush light metals, woods, and plastics.
+They can reduce glass and plastic to powder
+(though they do not have the ability to turn coal into diamonds!).
 """,
-"Ligações de Interface":"""
+"Interface Links":"""
 As Ligações de Interface só podem ser instaladas numa Clínica,
 durante a instalação de uma Ligação Neural.
 As Ligações de Interface são colocadas nos pulsos ou na cabeça,
@@ -89,7 +88,7 @@ As cores são mais vivas, as imagens mais nítidas. E isto é apenas o começo..
 }
 
 # Descrição de cada CLASSE
-descricao_classe = {
+class_description = {
 "Corpo":"""
 Elegantes e sem princípios, os "Corpos" ou Executivos são funcionários de corporações.
 Sendo ricos e persuasivos, são capazes de mobilizar favores e recursos para além do que a maioria das pessoas consegue sequer sonhar.
@@ -106,8 +105,8 @@ Apelidados de lixo das ruas, gangsters são na realidade os soberanos da noite n
 Seja um pequeno grupo de uma dúzia ou um exército de duzentos, cada gang em Night City é tão diverso quanto a própria rua.
 Cromados, viciados e aberrantes, todos misturados numa mistura letal, regada abundantemente com sangue.
 """,
-"Polícia":"""
-Os Agentes da Lei, ou Polícias, podem abranger desde detetives privados até agentes governamentais.
+"Cop":"""
+Os Agentes da Lei, ou Cops, podem abranger desde detetives privados até agentes governamentais.
 Como figuras de autoridade, possuem a capacidade de intimidar ou controlar outros através da sua posição como agentes da lei.
 """,
 "Solo":"""
@@ -151,7 +150,7 @@ Se um Nómada estiver em apuros, pode contar com os membros da sua família para
 }
 
 # Descrição da HABILIDADE ESPECÍFICA de cada CLASSE (neste caso, dicionário onde cada chave está associada a um tuplo)
-descricao_habilidade_classe = {
+description_habilidade_classe = {
 "Corpo":
 ("Recursos","""
 Esta habilidade representa a capacidade do corporativo de comandar recursos da corporação.
@@ -170,9 +169,9 @@ Os Gangsters têm um talento especial para obter informações e favores das pes
 Seja através de intimidação, suborno ou persuasão, conseguem rapidamente estabelecer contactos e ganhar a confiança dos habitantes locais.
 Esta habilidade torna-os mestres em reunir informações sobre o ambiente urbano, encontrar mercadorias valiosas ou até mesmo recrutar aliados improváveis para as suas empreitadas criminosas.
 """),
-"Polícia":
+"Cop":
 ("Autoridade","""
-Os polícias recorrem à Autoridade para obrigar as pessoas a fazer tudo o que desejam.
+Os Cops recorrem à Autoridade para obrigar as pessoas a fazer tudo o que desejam.
 Alguns baseiam-se no medo ou na intimidação, enquanto outros simplesmente agem como profissionais no cumprimento das suas funções.
 """),
 "Solo":
@@ -213,7 +212,7 @@ mas tem de retribuir essa ajuda ou perderá estatuto e sofrerá penalizações c
 }
 
 # Descrição de cada gang
-descricao_gangue = {
+description_gangue = {
 "Maelstrom":"""
 Desesperados por se tornarem mais máquina do que homem, sem se importarem com as consequências. 
 Os Maelstrom implantam os seus corpos ao extremo com implantes cibernéticos poderosos e altamente ilegais.
@@ -292,7 +291,7 @@ Fora das suas muralhas, são apenas mais um gang armado até aos dentes com arma
 }
 
 # Descrição de cada PACK (nomad)
-descricao_pack = {
+description_pack = {
 "Wraiths":"""
 Os Wraiths constituem um grupo eclético de indivíduos exilados de outros grupos nómadas por violação de tradições e outras transgressões.
 Enquanto a maioria das famílias nómadas vive nos limites da lei,
@@ -326,7 +325,7 @@ Uma sociedade altamente tecnológica, onde implantes cibernéticos e realidade v
 a desigualdade social é notória, criando uma divisão entre os privilegiados e os desfavorecidos.
 Night City, uma metrópole decadente na costa oeste dos Estados Unidos, serve como o cenário principal.
 Nesta cidade sombria e perigosa, gangues violentos disputam as ruas para obter controlo,
-enquanto a polícia muitas vezes se mostra corrupta e ineficaz.
+enquanto a Cop muitas vezes se mostra corrupta e ineficaz.
 No universo de Cyberpunk , indivíduos assumem papéis como mercenários, hackers e outras figuras marginais,
 lutando pela sobrevivência e sucesso num mundo onde a lei do mais forte reina soberana.
 Ao explorarem os becos sombrios e os arranha-céus brilhantes de Night City,

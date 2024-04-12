@@ -1,4 +1,4 @@
-                name,|  Nível Inicial,|   Nível Máximo,|       Ocupação,|    Gangue/Pack,|       Implante Cibernético,Informação Adicional
+                name,|  Nível Inicial,|   Nível Máximo,|       Ocupação,|    gang/Pack,|       Implante Cibernético,Informação Adicional
 Johnny Silverhand,10,20,Rockerboy,-,Braço cibernético Cromado,"Johnny Silverhand, nascido Robert John Linder, foi um famoso e influente rockerboy e vocalista da banda Samurai.
 Como veterano militar, definiu o movimento rockerboy tal como é conhecido hoje,
 destacando-se como a principal figura na luta contra o governo corrupto da NUSA e as megacorporações,
@@ -62,3 +62,7 @@ Rache Bartmoss,10,20,Netrunner,-,?,"Rache Bartmoss foi um lendário Netrunner no
 Ficou famoso como o homem que causou a DataKrash e destruiu a Net.
 Ele inventou os programas Demon e Hound.
 Juntamente com Spider Murphy, escreveu os livros ""Guia para a Net de Rache Bartmoss"" e ""Explosão de Hardware Cerebral""."
+Wassupp,8,15,Nomad,Aldecaldos,Gorilla Arms,blarp
+sfdgh,8,20,Corpo,-,Sandevistan,fsdgh
+dfj,2,16,Corpo,-,Sandevistan,fghjkhjgk
+djh,2,20,Corpo,-,Sandevistan,fghdh

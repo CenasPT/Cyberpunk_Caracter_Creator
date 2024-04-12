@@ -1,6 +1,7 @@
 import os # Utilizado para limpar a consola
 from Lore_Cyberpunk import * # Informações sobre o universo Cyberpunk
 from Main_Cyberpunk import menu_escolhas, stop
+from Animations_Cyberpunk import center_text # Centers the text
 
 # Este módulo contém várias funções relacionadas com a apresentação de infomação sobre o mundo de Cyberpunk
 
@@ -114,7 +115,7 @@ def info_implantes_ciberneticos(contexto):
             os.system('cls')
             print(Fore.BLUE+Style.BRIGHT+center_text("\nIMPLANTES CIBERNÉTICOS")+Style.RESET_ALL)
             print(Fore.BLUE+Style.BRIGHT+center_text(opcao)+Style.RESET_ALL)
-            print(get_descricao_implante(opcao))
+            print(get_implant_description(opcao))
             if contexto == "Universo_Cyberpunk":
                 escolhas = [ 
                 "Implantes Cibernéticos",           
@@ -149,7 +150,7 @@ def info_ocupacoes(contexto):
             "Corpo",
             "Rockerboy",
             "Gangster",
-            "Polícia",
+            "Cop",
             "Solo",
             "Netrunner",
             "Techie",
@@ -164,7 +165,7 @@ def info_ocupacoes(contexto):
             "Corpo",
             "Rockerboy",
             "Gangster",
-            "Polícia",
+            "Cop",
             "Solo",
             "Netrunner",
             "Techie",
@@ -187,8 +188,8 @@ def info_ocupacoes(contexto):
             os.system('cls')
             print(Fore.BLUE+Style.BRIGHT+center_text("\nOCUPAÇÕES/PAPÉIS NA SOCIEDADE")+Style.RESET_ALL)
             print(Fore.BLUE+Style.BRIGHT+center_text(opcao)+Style.RESET_ALL)
-            print(get_descricao_classe(opcao))
-            print(get_descricao_habilidade_classe(opcao))
+            print(get_class_description(opcao))
+            print(get_description_habilidade_classe(opcao))
             if contexto == "Universo_Cyberpunk":
                 escolhas = [ 
                 "Ocupações / Papéis na sociedade",           
@@ -259,7 +260,7 @@ def info_gangues(contexto):
             os.system('cls')
             print(Fore.BLUE+Style.BRIGHT+center_text("\nGANGUES")+Style.RESET_ALL)
             print(Fore.BLUE+Style.BRIGHT+center_text(opcao)+Style.RESET_ALL)
-            print(get_descricao_gangue(opcao))
+            print(get_description_gangue(opcao))
             if contexto == "Universo_Cyberpunk":
                 escolhas = [ 
                 "Gangues",           
@@ -316,7 +317,7 @@ def info_nomad_packs(contexto):
             os.system('cls')
             print(Fore.BLUE+Style.BRIGHT+center_text("\nNOMAD PACKS")+Style.RESET_ALL)
             print(Fore.BLUE+Style.BRIGHT+center_text(opcao)+Style.RESET_ALL)
-            print(get_descricao_pack(opcao))
+            print(get_description_pack(opcao))
             if contexto == "Universo_Cyberpunk":
                 escolhas = [ 
                 "Nomad Packs",           
