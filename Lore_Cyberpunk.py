@@ -10,28 +10,28 @@ def get_class_description(class_name):
     description = class_description.get(class_name,"No information available")
     return "\n" + Fore.GREEN + Style.BRIGHT + class_name + Style.RESET_ALL + description
 
-# Função para obter descrição da habilidade específica de cada classe
-def get_description_habilidade_classe(class_name):
-    tuplo = description_habilidade_classe.get(class_name,("-","No information available")) # Extrair o tuplo
-    name_habilidade = tuplo[0]  # Extrair o primeiro elemento do tuplo
-    description_habilidade = tuplo[1]  # Extrair o segundo elemento do tuplo    
-    return "\n" + Fore.GREEN + Style.BRIGHT + name_habilidade + Style.RESET_ALL + description_habilidade
+# Function to get description of specific ability from each class
+def get_description_class_ability(class_name):
+    tuple = class_ability_description.get(class_name,("-","No information available")) # Extract tuple
+    ability_name = tuple[0]  # Extract the first tuple element
+    ability_description = tuple[1]  # Extract the tuples second element    
+    return "\n" + Fore.GREEN + Style.BRIGHT + ability_name + Style.RESET_ALL + ability_description
 
-# Função para obter descrição de cada gang
-def get_description_gangue(name_gangue):
-    description = description_gangue.get(name_gangue,"No information available")
-    return "\n" + Fore.GREEN + Style.BRIGHT + name_gangue + Style.RESET_ALL + description
+# Function to get description of each gang
+def get_gang_description(gang_name):
+    description = gang_description.get(gang_name,"No information available")
+    return "\n" + Fore.GREEN + Style.BRIGHT + gang_name + Style.RESET_ALL + description
 
-# Função para obter descrição de cada pack (nomad)
-def get_description_pack(name_pack):
-    description = description_pack.get(name_pack,"No information available")
-    return "\n" + Fore.GREEN + Style.BRIGHT + name_pack + Style.RESET_ALL + description
+# Function to obtain description of each pack (nomad)
+def get_pack_description(pack_name):
+    description = pack_description.get(pack_name,"No information available")
+    return "\n" + Fore.GREEN + Style.BRIGHT + pack_name + Style.RESET_ALL + description
 
-# Função para obter Lore de Cyberpunk / texts singulares
-def get_lore_cyberpunk(name_lore):
-    return lore_cyberpunk.get(name_lore)
+# Function to retrieve Cyberpunk Lore / Unique Texts
+def get_cyberpunk_lore(lore_name):
+    return cyberpunk_lore.get(lore_name)
 
-# Descrição de cada IMPLANTE CIBERNÉTICO
+# Description of each CYBERNETIC IMPLANT
 implant_description = {
 "Sandevistan":"""
 Sandevistan is a cybernetic implant that allows its user to slow down time,
@@ -55,7 +55,7 @@ To achieve this, we suggest acquiring the Gorilla Arms.
 This upgrade considerably amplifies the damage caused by your fists,
 allowing you to inflict significant suffering on your opponents.
 """,
-"Chrome Cybernetic Arm":"""
+"Cybernetic Chrome Arm":"""
 A cybernetic arm uses synthetic muscle fibers instead of flesh and blood.
 They do not tire or feel pain, and are also much stronger and more powerful than normal muscle tissue.
 They have tremendous gripping power,
@@ -64,289 +64,279 @@ They can reduce glass and plastic to powder
 (though they do not have the ability to turn coal into diamonds!).
 """,
 "Interface Links":"""
-As Ligações de Interface só podem ser instaladas numa Clínica,
-durante a instalação de uma Ligação Neural.
-As Ligações de Interface são colocadas nos pulsos ou na cabeça,
-permitindo a ligação a Smartguns, Cyberdecks, equipamento pesado e até mesmo conduzir veículos sem usar as mãos.
-É possível instalar várias Ligações de Interface ao mesmo tempo, permitindo várias ligações em simultâneo.
+Interface Links can only be installed at a Clinic,
+during the installation of a Neural Link.
+Interface Links are placed on the wrists or head,
+allowing connection to Smartguns, Cyberdecks, heavy equipment, and even driving vehicles without using hands.
+It's possible to install multiple Interface Links simultaneously, enabling multiple connections at once.
 """,
 "Samson frame":"""
-Imagina um trabalhador incansável, incrivelmente forte e capaz de sobreviver a praticamente qualquer acidente.
-Este é o Samson, uma conversão corporal completa.
-Projetado para trabalhos de construção, carga e operações "hazmat" (onde se lida com materiais e ambientes tóxicos),
-o Samson é tão eficaz quanto uma equipa inteira de trabalhadores.
-Ele é igualmente competente a centenas de metros acima do solo como soldador em estruturas de aço elevadas,
-ou a centenas de metros abaixo da superfície da Terra em túneis de mineração.
-Além disso, o Samson também se destaca em atividades como exploração florestal,
-perfuração de petróleo, eliminação de resíduos tóxicos e em qualquer outra aplicação industrial imaginável.
+
+Imagine an tireless worker, incredibly strong, and capable of surviving practically any accident.
+This is Samson, a full-body conversion.
+Designed for construction, loading, and hazmat operations (handling toxic materials and environments),
+Samson is as effective as an entire team of workers.
+He is equally competent hundreds of meters above ground as a welder on high steel structures,
+or hundreds of meters below the Earth's surface in mining tunnels.
+Additionally, Samson excels in activities such as forestry, oil drilling, toxic waste disposal, and any other imaginable industrial application.
 """,
-"Visão Cibernética":"""
-Uma combinação de processador digital e câmera, que serve para substituir os olhos humanos.
-A visão cibernética é semelhante à visão normal, mas melhorada.
-As cores são mais vivas, as imagens mais nítidas. E isto é apenas o começo...
+"Cybernetic Vision":"""
+A combination of digital processor and camera, meant to replace human eyes.
+Cybernetic Vision is akin to normal vision, but enhanced.
+Colors are more vivid, images sharper and this is just the beginning...
 """
 }
 
-# Descrição de cada CLASSE
+# Description of each CLASS
 class_description = {
 "Corpo":"""
-Elegantes e sem princípios, os "Corpos" ou Executivos são funcionários de corporações.
-Sendo ricos e persuasivos, são capazes de mobilizar favores e recursos para além do que a maioria das pessoas consegue sequer sonhar.
+Sleek and unscrupulous, "Corpos" or Executives are corporate employees.
+Being wealthy and persuasive, they can mobilize favors and resources beyond what most people can even dream of.
 """,
 "Rockerboy":"""
-Rockerboys são músicos rebeldes que usam a música e a revolta para lutar contra a autoridade.
-Assemelham-se muito aos punks dos anos 80, que olham com desdenho para os corporativos "vendidos", traidores da arte.
-Graças ao seu carisma, conseguem influenciar, incitar e encantar um grande número de pessoas através dos seus espectáculos musicais.
+Rockerboys are rebellious musicians who use music and rebellion to fight against authority.
+They closely resemble the punks of the 80s, looking disdainfully at the "sellout" corporates, betrayers of art.
+Thanks to their charisma, they can influence, incite, and enchant a large number of people through their musical performances.
 """,
 "Gangster":"""
-Durante o dia, as ruas são dominadas pelos executivos corporativos e pelos trabalhadores que se deslocam para o trabalho.
-Mas à noite, os predadores saem dos seus esconderijos entre rochas e montes de lixo, e a cidade ganha vida.
-Apelidados de lixo das ruas, gangsters são na realidade os soberanos da noite na cidade.
-Seja um pequeno grupo de uma dúzia ou um exército de duzentos, cada gang em Night City é tão diverso quanto a própria rua.
-Cromados, viciados e aberrantes, todos misturados numa mistura letal, regada abundantemente com sangue.
+During the day, the streets are dominated by corporate executives and workers commuting to work.
+But at night, predators emerge from their hideouts among rocks and piles of garbage, and the city comes to life.
+Dubbed as street trash, gangsters are actually the rulers of the night in the city.
+Whether a small group of a dozen or an army of two hundred, each gang in Night City is as diverse as the street itself.
+Chrome, addicts, and aberrations, all mixed into a deadly concoction, abundantly sprinkled with blood.
 """,
 "Cop":"""
-Os Agentes da Lei, ou Cops, podem abranger desde detetives privados até agentes governamentais.
-Como figuras de autoridade, possuem a capacidade de intimidar ou controlar outros através da sua posição como agentes da lei.
+Law Enforcement Agents, or Cops, can range from private detectives to government agents.
+As figures of authority, they have the ability to intimidate or control others through their position as law enforcement agents.
 """,
 "Solo":"""
-Os Solos são assassinos contratados, guarda-costas e mercenários.
-Graças ao seu profissionalismo e treino constante,
-têm a capacidade de detetar perigos,
-identificar armadilhas e exibir uma habilidade quase sobrenatural para evitar danos.
+Solos are hired assassins, bodyguards, and mercenaries.
+Thanks to their professionalism and constant training,
+they have the ability to detect dangers,
+identify traps, and display an almost supernatural ability to avoid harm.
 """,
 "Netrunner":"""
-Os Netrunners são hackers experientes, mas com um sistema de interface cibernetica implantada no seu corpo.
-Utilizam os seus implantes de interface cérebro-computador,
-navegam pela Internet em busca de sistemas para hackear e informações para vender aos fixers.
-Embora qualquer pessoa possa entrar na Net (também conhecida como ciberespaço),
-a maioria não consegue utilizar o "Menu".
-Um conjunto de Aplicações que permitem ao Netrunner Localizar e Controlar Remotamente.
-Executar, Carregar, Criar e Apagar Software.
+Netrunners are experienced hackers, but with a cybernetic interface system implanted in their bodies.
+They use their brain-computer interface implants
+to navigate the Internet in search of systems to hack and information to sell to fixers.
+Although anyone can enter the Net (also known as cyberspace),
+most cannot use the "Menu".
+A set of Applications that allow the Netrunner to Locate and Remote Control.
+Execute, Load, Create, and Delete Software.
 """,
 "Techie":"""
-Os Techies (ou Técnicos) abrangem desde técnicos até especialistas em cibernética.
-Normalmente, são techies underground, que realizam trabalhos "off-the-record".
+Techies encompass everything from technicians to cybernetics specialists.
+They are typically underground techies who perform "off-the-record" jobs.
 """,
 "Media":"""
-Os profissionais dos media podem ir desde sensacionalistas desesperados por atenção até demagogos,
-mas também poderás encontrar alguns dissidentes credíveis e honestos num mundo dominado por fantoches controlados por corporações.
-Enquanto mantiverem a sua credibilidade como jornalistas relevantes,
-as pessoas acreditam no que estão a dizer, mesmo que não haja factos para sustentar as suas afirmações.
+Media professionals can range from attention-seeking sensationalists to demagogues,
+but you can also find some credible and honest dissenters in a world dominated by corporate-controlled puppets.
+As long as they maintain their credibility as relevant journalists,
+people believe what they are saying, even if there are no facts to support their claims.
 """,
 "Fixer":"""
-Os Fixers são os intermediários com relações fortes, contrabandistas e detentores de informações precisosas.
-Graças às suas ligações nas ruas,
-conseguem localizar, adquirir e obter informações sobre pessoas, lugares ou objetos desejados dentro da sua área de atuação,
-que de seguida vendem no mercado negro.
+Fixers are intermediaries with strong connections, smugglers, and holders of valuable information.
+Thanks to their connections on the streets,
+they can locate, acquire, and obtain information about desired people, places, or objects within their area of operation,
+which they then sell on the black market.
 """,
 "Nomad":"""
-Os Nómadas eram "escravos" corporativos,
-que foram despedidos e ostracizados do emprego.
-Agora percorrem as estradas como viajantes e gangues motociclistas.
-Devido à dureza da vida na estrada, mantêm laços familiares fortes.
-Se um Nómada estiver em apuros, pode contar com os membros da sua família para o apoiarem.
+Nomads were corporate "slaves",
+who were fired and ostracized from employment.
+Now they roam the roads as travelers and motorcycle gangs.
+Due to the harshness of life on the road, they maintain strong family ties.
+If a Nomad is in trouble, they can count on their family members to support them.
 """
 }
 
-# Descrição da HABILIDADE ESPECÍFICA de cada CLASSE (neste caso, dicionário onde cada chave está associada a um tuplo)
-description_habilidade_classe = {
+# Description of the SPECIFIC ABILITY of each CLASS (in this case, a dictionary where each key is associated with a tuple)
+class_ability_description = {
 "Corpo":
-("Recursos","""
-Esta habilidade representa a capacidade do corporativo de comandar recursos da corporação.
-É utilizada como uma habilidade de persuasão, com base na escala dos recursos solicitados.
-Pode incluir guarda-costas, armas, edifícios, dinheiro, poder, ações, distritos, aviões, iates, países, assassinos, armas de fogo, armas brancas e muito mais.
-Obviamente, quanto mais poderosa a corporação, mais recursos poderá invocar a qualquer momento.
+("Resources","""
+This ability represents the corporate's ability to command resources from the corporation.
+It is used as a persuasion skill, based on the scale of the requested resources.
+It can include bodyguards, weapons, buildings, money, power, stocks, districts, airplanes, yachts, countries, assassins, firearms, melee weapons,
+and much more.
+Obviously, the more powerful the corporation, the more resources it can invoke at any given time.
 """),
 "Rockerboy":
-("Carisma Impactante","""
-Rockerboy consegue influenciar através do carisma presente na sua personalidade.
-À medida que desenvolvem a sua personalidade e habilidades, podem afetar grupos maiores e convocar seguidores para pedidos de lealdade de maior envergadura.
+("Impactful Charisma","""
+Rockerboys can influence through the charisma present in their personality.
+As they develop their personality and skills, they can affect larger groups and rally followers for requests of greater loyalty.
 """),
 "Gangster":
-("Voz das Ruas","""
-Os Gangsters têm um talento especial para obter informações e favores das pessoas que habitam as ruas de Night City.
-Seja através de intimidação, suborno ou persuasão, conseguem rapidamente estabelecer contactos e ganhar a confiança dos habitantes locais.
-Esta habilidade torna-os mestres em reunir informações sobre o ambiente urbano, encontrar mercadorias valiosas ou até mesmo recrutar aliados improváveis para as suas empreitadas criminosas.
+("Streets Voice","""
+Gangsters have a special talent for obtaining information and favors from the people inhabiting the streets of Night City.
+Whether through intimidation, bribery, or persuasion, they can quickly establish contacts and gain the trust of local residents.
+This ability makes them masters at gathering information about the urban environment,
+finding valuable goods, or even recruiting unlikely allies for their criminal endeavors.
 """),
 "Cop":
-("Autoridade","""
-Os Cops recorrem à Autoridade para obrigar as pessoas a fazer tudo o que desejam.
-Alguns baseiam-se no medo ou na intimidação, enquanto outros simplesmente agem como profissionais no cumprimento das suas funções.
+("Authority","""
+Cops rely on Authority to compel people to do whatever they desire.
+Some rely on fear or intimidation, while others simply act as professionals in the execution of their duties.
 """),
 "Solo":
-("Sentido de Combate","""
-Esta capacidade baseia-se no treino constante e profissionalismo do Solo.
-Permite-lhe perceber perigos, detetar armadilhas e exibir uma habilidade quase sobrenatural para evitar danos.
+("Combat Sense","""
+This ability is based on the constant training and professionalism of the Solo.
+It allows them to perceive dangers, detect traps, and display an almost supernatural ability to avoid harm.
 """),
 "Netrunner":
 ("Interface","""
-Uma capacidade extraordinária de interação e manipulação dentro do ciberespaço.
-Permite que os Netrunners consigam perceber dados brutos como objetos pseudo-físicos abstratos,
-traduzindo informações em estímulos sensoriais artificiais.
+An extraordinary ability for interaction and manipulation within cyberspace.
+It enables Netrunners to perceive raw data as abstract pseudo-physical objects,
+translating information into artificial sensory stimuli.
 """),
 "Techie":
-("Adaptação Improvisada","""
-Permite reparar e melhorar equipamentos, armas ou implantes cibernéticos,
-mas também encontrar os materiais e equipamentos necessários para criar ou consertar esses equipamentos.
+("Improvised Adaptation","""
+Allows repairing and enhancing equipment, weapons, or cybernetic implants,
+as well as finding the necessary materials and equipment to create or fix these items.
 """),
 "Media":
-("Credibilidade","""
-É crucial para fazer com que a sua história seja ouvida e levada a sério,
-convencer as pessoas a partilharem informações,
-fornecerem acesso aos locais onde a história realmente acontece.
-Quanto maior for a Credibilidade, mais pessoas conseguirá persuadir
-e mais simples será convencer autoridades de alto nível da veracidade das suas informações.
+("Credibility","""
+It's crucial for getting your story heard and taken seriously,
+convincing people to share information,
+providing access to the places where the story actually unfolds.
+The higher your Credibility, the more people you'll be able to persuade
+and the easier it will be to convince high-level authorities of the truthfulness of your information.
 """),
 "Fixer":
 ("Streetdeal","""
-A habilidade especial do fixer é negociar um Acordo de Rua.
-Se o cliente do fixer aceitar o acordo, então esse cliente está "em Run".
-As Runs são trabalhos que o Fixer oferece para fornecer aos seus clientes dinheiro para comprar equipamento, provisões, etc.
+The fixer's special ability is negotiating a Street Deal.
+If the fixer's client accepts the deal, then that client is "on the Run".
+Runs are jobs that the Fixer offers to provide their clients with money to buy equipment, supplies, etc.
 """),
 "Nomad":
-("Família","""
-Um Nómada pode recorrer ao seu grupo para hospitalidade, proteção e assistência,
-mas tem de retribuir essa ajuda ou perderá estatuto e sofrerá penalizações como consequência.
+("Family","""
+A Nomad can rely on their group for hospitality, protection, and assistance,
+but they must reciprocate this help or risk losing status and suffering penalties as a consequence.
 """)
 }
 
-# Descrição de cada gang
-description_gangue = {
+# Description of each gang
+gang_description = {
 "Maelstrom":"""
-Desesperados por se tornarem mais máquina do que homem, sem se importarem com as consequências. 
-Os Maelstrom implantam os seus corpos ao extremo com implantes cibernéticos poderosos e altamente ilegais.
-Contrabando, assassinatos encomendados e assaltos de alto risco são a sua especialidade e são implacavelmente habilidosos nisso.
-É melhor jogares segundo as suas regras e mostrares algum respeito,
-se não quiseres que os seus olhos mecânicos vermelho-sangue sejam a última imagem que algum dia verás.
+Desperate to become more machine than man, caring little for the consequences.
+The Maelstrom push their bodies to the extreme with powerful and highly illegal cybernetic implants.
+Smuggling, contract killings, and high-risk robberies are their specialties,
+and they are relentlessly skilled at it.
+It's best to play by their rules and show some respect,
+unless you want their blood-red mechanical eyes to be the last image you'll ever see.
 """,
 "Valentinos":"""
-A lealdade, a família e o apoio mútuo são a essência do credo dos Valentinos.
-As ruas de Heywood são o seu refúgio,
-adornadas com murais coloridos e santuários dedicados ao seu ídolo, Santa Muerte,
-sendo também palco de corridas de alta velocidade e festas de rua que duram toda a noite.
-Sabem como se divertir, mas causar problemas no seu território significa enfrentar todo um bairro
+Loyalty, family, and mutual support are the essence of the Valentinos' creed.
+The streets of Heywood are their sanctuary,
+adorned with colorful murals and shrines dedicated to their idol, Santa Muerte,
+and are also the stage for high-speed races and all-night street parties.
+They know how to have fun, but causing trouble in their territory means facing an entire neighborhood.
 """,
 "6th Street":"""
-No início eram apelidados de heróis,
-uma força que se oporia às corporações e gangues que aterrorizavam a comunidade local.
-No entanto, a visão original dos seus fundadores desvaneceu-se.
-Agora, dominam Santo Domingo e são tão auto-servientes e autojustos como o pior que existe em Night City.
+In the beginning, they were dubbed heroes,
+a force that would oppose the corporations and gangs terrorizing the local community.
+However, the original vision of their founders has faded.
+Now, they dominate Santo Domingo and are as self-serving and self-righteous as the worst that Night City has to offer.
 """,
 "VooDoo Boys":"""
-Ninguém em Night City está tão profundamente entrelaçado com as entranhas da Net como os Voodoo Boys.
-Enraizados na cultura e tradição haitianas,
-estes netrunners de elite usam a sua mestria no reino digital para hackear dados e informações que de outra forma seriam intocáveis.
-São a escolha ideal para aceder para além da Blackwall,
-mas mantém os olhos abertos,
-porque desconfiam bastante de estranhos.
+No one in Night City is as deeply intertwined with the depths of the Net as the Voodoo Boys.
+Rooted in Haitian culture and tradition,
+these elite netrunners use their mastery in the digital realm to hack into data and information that would otherwise be untouchable.
+They are the ideal choice for accessing beyond the Blackwall, but keep your eyes open, because they are very distrustful of strangers.
 """,
 "Animals":"""
-Numa cidade onde a maioria confia em implantes cibernéticos e armas de ponta,
-os Animals destacam-se ao maximizar o seu poder muscular natural.
-Injetam-se com esteroides e suplementos,
-ficando completamente e agressivamente musculados.
-Utilizam a sua força para intimidar, extorquir e subjugar qualquer um que precise 'aprender uma lição'.
+
+In a city where most rely on cybernetic implants and cutting-edge weapons,
+the Animals stand out by maximizing their natural muscular power.
+They inject themselves with steroids and supplements, becoming completely and aggressively muscular.
+They use their strength to intimidate, extort, and subdue anyone who needs to "learn a lesson".
 """,
 "Tyger Claws":"""
-Japantown é, sem sombra de dúvida, o território principal dos Tyger Claws.
-Desde o entretenimento ilícito profundamente enraizado no distrito da luz vermelha até aos serviços totalmente legítimos na superfície.
-Estes gangsters tatuados sabem como extorquir dinheiro dos que buscam prazer.
-Tentar desafiá-los significa arriscar-se a perder mais do que simplesmente dinheiro.
+Japantown is undoubtedly the main territory of the Tyger Claws.
+From deeply rooted illicit entertainment in the red-light district
+to entirely legitimate services on the surface.
+These tattooed gangsters know how to extort money from those seeking pleasure.
+Trying to challenge them means risking more than just money.
 """,
 "Moxes":"""
-Os Mox podem não ser tão numerosos ou territorialmente dominantes como outras gangues,
-mas constituem uma força a ter em consideração.
-Sob a liderança de trabalhadoras do sexo, punks, anarquistas e membros de minorias sexuais,
-inspirados pelos princípios da falecida stripper transformada em dona de clube de strip, Elizabeth 'Lizzie' Borden,
-este gang protege os seus membros contra a violência e o abuso.
-No entanto, não se enganem ao idealizar.
-A sua forma de proteção não é isenta de derramamento de sangue,
-não é gratuita e está longe de ser desprovida de atividades obscuras.
+The Mox may not be as numerous or territorially dominant as other gangs,
+but they are a force to be reckoned with.
+Under the leadership of sex workers, punks, anarchists, and members of sexual minorities,
+inspired by the principles of the late stripper turned strip club owner, Elizabeth 'Lizzie' Borden,
+this gang protects its members against violence and abuse.
+However, make no mistake in idealizing them.
+Their form of protection is not without bloodshed, it's not free, and it's far from devoid of shady activities.
 """,
 "Scavengers":"""
-Os Scavengers, ou 'Scavs', ocupam o patamar mais baixo em Night City.
-Eles recolhem implantes, tecnologia e órgãos das sua vítimas,
-depois de os atacar nas ruas e arrastar para porões sombrios.
-Sobrevivem vendendo os seus saques sangrentos no mercado negro.
-Assassinos sem vergonha e sem escrúpulos,
-visam membros de gangues e cidadãos cumpridores da lei de igual modo.
-Para um Scavenger, é tudo a mesma coisa.
+The Scavengers, or 'Scavs', occupy the lowest tier in Night City.
+They scavenge implants, technology, and organs from their victims
+after attacking them on the streets and dragging them into dark basements.
+They survive by selling their bloody loot on the black market.
+Shameless and unscrupulous killers, they target gang members and law-abiding citizens alike.
+To a Scavenger, it's all the same.
 """,
 "Barguest":"""
-Os homens nas suas fileiras variam desde soldados endurecidos em batalhas com stress pós-traumático
-até jovens desesperados das ruas,
-contrabandistas dos cais,
-mercenários e vigaristas de várias especialidades.
-No topo da cadeia alimentar estão os soldados
-que fazem parte do círculo de confiança de Hansen, o líder de Dogtown.
-Embora as ruas estejam frequentemente repletas de soldados,
-raramente se interessam pelos problemas dos cidadãos de Dogtown.
-No entanto, se saíres para as ruas deixando um rasto de destruição,
-eles certamente mostrarão interesse.
-O Barghest raramente expõe a sua cabeça fora de Dogtown.
-É aqui que são tratados como soberanos.
-Fora das suas muralhas, são apenas mais um gang armado até aos dentes com armas perigosas.
+The men in their ranks range from battle-hardened soldiers with post-traumatic stress
+to desperate young street dwellers, dockside smugglers, mercenaries, and swindlers of various specialties.
+At the top of the food chain are the soldiers who are part of Hansen's trusted circle, the leader of Dogtown.
+Although the streets are often crowded with soldiers, they rarely care about the problems of Dogtown citizens.
+However, if you go out into the streets leaving a trail of destruction, they will surely show interest.
+The Barghest rarely exposes their heads outside of Dogtown.
+It is here that they are treated as sovereigns.
+Outside their walls, they are just another heavily armed gang with dangerous weapons.
 """
 }
 
-# Descrição de cada PACK (nomad)
-description_pack = {
+# Description of each PACK (nomad)
+pack_description = {
 "Wraiths":"""
-Os Wraiths constituem um grupo eclético de indivíduos exilados de outros grupos nómadas por violação de tradições e outras transgressões.
-Enquanto a maioria das famílias nómadas vive nos limites da lei,
-os Wraiths posicionam-se de forma inabalável fora da mesma,
-rejeitando a estética de 'calor folclórico' comum aos verdadeiros grupos nómadas.
-Realizam incursões a comboios armados com armas modificadas e lança-mísseis,
-vestem-se com tons de preto e azul, evocando imagens etéreas e espectrais.
-Embora para os habitantes da cidade sejam apenas mais uma tribo nómada,
-os Wraiths assemelham-se mais a mercenários que, por acaso, partilham raízes nómadas.
+The Wraiths are an eclectic group of individuals exiled from other nomad groups for violating traditions and other transgressions.
+While most nomad families live on the fringes of the law, the Wraiths stand unwaveringly outside it,
+rejecting the aesthetic of 'folk warmth' common to true nomad groups.
+They conduct raids on armored convoys with modified weapons and missile launchers,
+dressing in shades of black and blue, evoking ethereal and spectral images.
+Although to city dwellers they are just another nomad tribe,
+the Wraiths resemble more mercenaries who happen to share nomadic roots.
 """,
 "Aldecaldos":"""
-Quando a violência entre gangues tirou a vida do filho de Juan Aldecaldo,
-os protestos apaixonados do pai tornaram-se um farol para muitos imigrantes indignados em Los Angeles.
-Formaram uma família à sua volta e saíram da cidade,
-adotando o estilo de vida nómada.
-O ancião Aldecaldo veio a falecer nos anos seguintes,
-e agora os Aldecaldos encontram-se acampados nos desertos perto de Night City.
-As suas caravanas transformadas em oficinas móveis,
-carros modificados e a habilidade para a recolha secreta de materiais,
-permite-lhes levar uma vida nos arredores da cidade,
-onde transportam contrabando para quem estiver disposto a pagar.
+When gang violence took the life of Juan Aldecaldo's son,
+the father's passionate protests became a beacon for many outraged immigrants in Los Angeles.
+They formed a family around him and left the city, adopting the nomadic lifestyle.
+The elder Aldecaldo passed away in the following years,
+and now the Aldecaldos find themselves camped in the deserts near Night City.
+Their caravans transformed into mobile workshops, modified cars, and the ability for secret material collection,
+allows them to live on the outskirts of the city,
+where they transport contraband for those willing to pay.
 """
 }
 
-# Lore de Cyberpunk / texts singulares
-lore_cyberpunk = {
-"O mundo de Cyberpunk":"""
-O mundo de Cyberpunk é um futuro distópico onde megacorporações
-controlam quase todos os aspectos da vida, desde a política até à economia.
-Uma sociedade altamente tecnológica, onde implantes cibernéticos e realidade virtual fazem parte do dia-a-dia,
-a desigualdade social é notória, criando uma divisão entre os privilegiados e os desfavorecidos.
-Night City, uma metrópole decadente na costa oeste dos Estados Unidos, serve como o cenário principal.
-Nesta cidade sombria e perigosa, gangues violentos disputam as ruas para obter controlo,
-enquanto a Cop muitas vezes se mostra corrupta e ineficaz.
-No universo de Cyberpunk , indivíduos assumem papéis como mercenários, hackers e outras figuras marginais,
-lutando pela sobrevivência e sucesso num mundo onde a lei do mais forte reina soberana.
-Ao explorarem os becos sombrios e os arranha-céus brilhantes de Night City,
-estes indivíduos encontrarão desafios mortais, intrigas corporativas e oportunidades para fazer fortuna ou perder tudo.
-Com uma atmosfera sombria e uma energia constante pulsando pelas suas ruas,
-este universo escontra-se repleto de experiências envolventes e emocionantes.
-A população faz parte de um futuro distópico onde as fronteiras entre humano e máquina se desvanecem a cada avanço tecnológico.
+# Cyberpunk Lore / Unique Texts
+cyberpunk_lore = {
+"The World of Cyberpunk":"""
+The world of Cyberpunk is a dystopian future where megacorporations control almost every aspect of life, from politics to the economy.
+A highly technological society where cybernetic implants and virtual reality are part of everyday life,
+social inequality is stark, creating a division between the privileged and the underprivileged.
+Night City, a decadent metropolis on the west coast of the United States, serves as the main setting.
+In this dark and dangerous city, violent gangs fight for control of the streets, while the law enforcement often proves corrupt and ineffective.
+In the Cyberpunk universe, individuals take on roles such as mercenaries, hackers, and other fringe figures,
+fighting for survival and success in a world where the law of the jungle reigns supreme.
+As they explore the dark alleys and gleaming skyscrapers of Night City,
+these individuals will encounter deadly challenges, corporate intrigue, and opportunities to make a fortune or lose everything.
+With a dark atmosphere and a constant energy pulsing through its streets,
+this universe is filled with engaging and thrilling experiences.
+The population is part of a dystopian future where the boundaries between human and machine blur with each technological advance.
 """,
-"Implantes Cibernéticos":"""
-Implantes cibernéticos são dispositivos tecnológicos integrados no corpo humano,
-concebidos para melhorar o desempenho físico, mental ou sensorial.
-Utilizando avanços na engenharia biomédica e na nanotecnologia,
-estes implantes podem oferecer uma ampla gama de funcionalidades.
-Ao serem implantados no corpo, estes dispositivos podem se unir com os tecidos biológicos,
-tornando-se parte integrante do organismo.
-São controlados através de interfaces neurais,
-o que permite uma ligação direta entre o cérebro e os sistemas cibernéticos.
-Os implantes cibernéticos representam um avanço significativo na evolução humana
-e são capazes de proporcionar capacidades que seriam consideradas impossíveis.
-No entanto, levantam questões éticas e morais sobre a natureza da identidade humana
-e até onde podemos ir na busca pelo melhoramento pessoal.
+"Cybernetic Implants":"""
+Cybernetic implants are technological devices integrated into the human body,
+designed to enhance physical, mental, or sensory performance.
+Utilizing advancements in biomedical engineering and nanotechnology,
+these implants can offer a wide range of functionalities.
+When implanted into the body, these devices can fuse with biological tissues,
+becoming an integral part of the organism.
+They are controlled through neural interfaces,
+allowing for a direct link between the brain and cybernetic systems.
+Cybernetic implants represent a significant advancement in human evolution
+and are capable of providing capabilities that would be considered impossible.
+However, they raise ethical and moral questions about the nature of human identity
+and how far we can go in the pursuit of personal enhancement.
 """
 }
 

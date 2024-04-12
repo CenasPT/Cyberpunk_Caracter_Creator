@@ -19,13 +19,13 @@ class Character:
         self.additional_info=additional_info 
     
     def get_additional_info(self): # Method that retrieves additional information of the object
-        print(Fore.GREEN+Style.BRIGHT+f"\About {self.name}"+Style.RESET_ALL+f"\n{self.additional_info}\n")
+        print(Fore.GREEN+Style.BRIGHT+f"About {self.name}"+Style.RESET_ALL+f"\n{self.additional_info}\n")
 
     def get_centered_name(self): # Method that displays the object's name as a title
         print(Fore.BLUE+Style.BRIGHT+center_text(f"{self.name.upper()}")+Style.RESET_ALL)
     
     def get_description(self): # Method that describes the character using the class attributes
-        print(Fore.BLUE+Style.BRIGHT+center_text(f"The game will initialize at level {self.initial_level}, with the potential to reach a maximum of {self.max_level}.")+Style.RESET_ALL)        
+        print(Fore.BLUE+Style.BRIGHT+center_text(f"Will initialize the game at level {self.initial_level}, with the potential to reach a maximum of {self.max_level}.")+Style.RESET_ALL)        
 
 # Definition of the "Corpo" class (Child of the Parent Class "Character")
 class Corpo(Character):    
@@ -33,7 +33,7 @@ class Corpo(Character):
         super().__init__(name,initial_level,max_level) # Initialization of the attributes of the Parent Class "Character"
         self.occupation="Corpo"
     def get_description(self): # Unique description exclusive to this class using an overridden method
-        print(Fore.BLUE+Style.BRIGHT+center_text(f"{self.name} is a Corporate.\nWill initialize the game at level {self.initial_level}, with the potential to reach a maximum of {self.max_level}.")+Style.RESET_ALL)
+        print(Fore.BLUE+Style.BRIGHT+center_text(f"A calculating Corporate.\nWill initialize the game at level {self.initial_level}, with the potential to reach a maximum of {self.max_level}.")+Style.RESET_ALL)
 
 # Definition of the "Rockerboy" class (Child of the Parent Class "Character")
 class Rockerboy(Character):    
@@ -74,7 +74,7 @@ class Netrunner(Character):
         super().__init__(name,initial_level,max_level) # initialization of the Parent Class's attributes
         self.occupation="Netrunner"
     def get_description(self): # Unique description exclusive to this class using an overridden method
-        print(Fore.BLUE+Style.BRIGHT+center_text(f"{self.name} is a Netrunner.\nWill initialize the game at level {self.initial_level}, with the potential to reach a maximum of {self.max_level}.")+Style.RESET_ALL)
+        print(Fore.BLUE+Style.BRIGHT+center_text(f"A Skilled Netrunner.\nWill initialize the game at level {self.initial_level}, with the potential to reach a maximum of {self.max_level}.")+Style.RESET_ALL)
 
 # Definition of the "Techie" class (Child of the Parent Class "Character")
 class Techie(Character):    
@@ -82,7 +82,7 @@ class Techie(Character):
         super().__init__(name,initial_level,max_level) # initialization of the Parent Class's attributes
         self.occupation="Techie"
     def get_description(self): # Unique description exclusive to this class using an overridden method
-        print(Fore.BLUE+Style.BRIGHT+center_text(f"{self.name} is a Techie.\nWill initialize the game at level {self.initial_level}, with the potential to reach a maximum of {self.max_level}.")+Style.RESET_ALL)
+        print(Fore.BLUE+Style.BRIGHT+center_text(f"Resourceful Techie.\nWill initialize the game at level {self.initial_level}, with the potential to reach a maximum of {self.max_level}.")+Style.RESET_ALL)
 
 # Definition of the "Media" class (Child of the Parent Class "Character")
 class Media(Character):    
