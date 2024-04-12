@@ -1,4 +1,4 @@
-# Cyberpunk_Caracter_Creator
+# Cyberpunk_Character_Creator
   Just a small project* 
   Character Creator based on Cyberpunk tabletop and videogame Lore.
   
