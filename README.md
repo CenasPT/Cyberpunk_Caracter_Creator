@@ -5,6 +5,7 @@ Just a small project made for fun. Was going to do more than just a simple chara
 Maybe i will do something with this in the future...
 
 Run with file Main_Cyberpunk.py
+
 Required Modules:
 		pygame /
 		pandas /
