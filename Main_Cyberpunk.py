@@ -8,14 +8,17 @@ from Lore_Cyberpunk import *  # Information about the Cyberpunk universe
 from Characters_Cyberpunk import *  # Predefined characters for the project
 from Universe_Cyberpunk import *  # Access the cyberpunk_universe function and other necessary functions for it
 
-# To pause the program for 3 seconds
 def stop():
+    """
+    To pause the program for 3 seconds
+    """
     for i in range(3,0,-1):
         print(f"{i}...", end=' ',flush=True) # end forces the print to end with a space instead of \n, and flush clears the buffer.
         time.sleep(1)
 
 # Play music
-def play_music(music_path):
+def play_music(music_file):
+    music_path = os.path.join(os.path.dirname(__file__), music_file)
     pygame.mixer.init() # Initialize the mixer
     pygame.mixer.music.load(music_path) # Fetches the music according to the provided path
     pygame.mixer.music.play(loops=-1, fade_ms=10000) # Start playing, repeat infinitely, gradually increase volume over 10 seconds
